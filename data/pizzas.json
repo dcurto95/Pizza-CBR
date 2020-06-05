@@ -1,0 +1,977 @@
+[
+    {
+        "name": "Quadroller Kansas BBQ",
+        "ingredients": {
+            "sauce": [
+                "barbecue"
+            ],
+            "meat": [
+                "beef",
+                "bacon",
+                "marinated chicken",
+                "new orleans pork"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [
+                "beef",
+                "marinated chicken",
+                "new orleans pork"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Quadroller Piamontesa",
+        "ingredients": {
+            "sauce": [
+                "carbonara"
+            ],
+            "meat": [
+                "bacon"
+            ],
+            "fish": [],
+            "vegetable": [
+                "caramelized onion"
+            ],
+            "cooked_meat": [],
+            "dough": ["garlic cheese filled border"],
+            "after_bake": [],
+            "cheese": [
+                "goat cheese",
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Quadroller Tennessee",
+        "ingredients": {
+            "sauce": [
+                "tomato and oregano",
+                "bourbon barbecue"
+            ],
+            "meat": [
+                "pulled pork"
+            ],
+            "fish": [],
+            "vegetable": [
+                "fresh tomato"
+            ],
+            "cooked_meat": [
+                "pulled pork"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping",
+                "provolone cheese"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Barbacoa Gourmet",
+        "ingredients": {
+            "sauce": [
+                "barbecue"
+            ],
+            "meat": [
+                "bacon",
+                "marinated chicken",
+                "double beef"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [
+                "marinated chicken",
+                "double beef"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "5 gourmet cheeses",
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "bacon crispy Gourmet",
+        "ingredients": {
+            "sauce": [
+                "barbecue"
+            ],
+            "meat": [
+                "bacon",
+                "bacon crispy"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [
+                "bacon crispy"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "5 gourmet cheeses",
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Carbonara Gourmet Queso",
+        "ingredients": {
+            "sauce": [
+                "carbonara"
+            ],
+            "meat": [
+                "double bacon"
+            ],
+            "fish": [],
+            "vegetable": [
+                "mushroom"
+            ],
+            "cooked_meat": [
+                "double bacon"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "5 gourmet cheeses",
+                "mozzarella topping",
+                "extra cheese"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "T\u00e1ndem Gourmet",
+        "ingredients": {
+            "sauce": [
+                "carbonara",
+                "barbecue"
+            ],
+            "meat": [
+                "bacon",
+                "beef",
+                "marinated chicken"
+            ],
+            "fish": [],
+            "vegetable": [
+                "mushroom",
+                "onion"
+            ],
+            "cooked_meat": [
+                "beef",
+                "marinated chicken"
+            ],
+            "dough": [
+                "thin"
+            ],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Barbacoa con quarter pounder",
+        "ingredients": {
+            "sauce": [
+                "bourbon barbecue"
+            ],
+            "meat": [
+                "quarter pounder",
+                "bacon",
+                "marinated chicken"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [
+                "quarter pounder",
+                "marinated chicken"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Carn\u00edvora Gourmet",
+        "ingredients": {
+            "sauce": [
+                "tomato"
+            ],
+            "meat": [
+                "beef",
+                "pepperoni",
+                "york",
+                "marinated chicken"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [
+                "beef",
+                "marinated chicken"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "5 gourmet cheeses",
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Barbacoa Meat & Grill",
+        "ingredients": {
+            "sauce": [
+                "barbecue"
+            ],
+            "meat": [
+                "beef",
+                "bacon",
+                "marinated chicken",
+                "pulled pork"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [
+                "beef",
+                "marinated chicken",
+                "pulled pork"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "5 gourmet cheeses",
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Carbonara Gourmet onion",
+        "ingredients": {
+            "sauce": [
+                "carbonara"
+            ],
+            "meat": [
+                "double bacon"
+            ],
+            "fish": [],
+            "vegetable": [
+                "mushroom",
+                "onion"
+            ],
+            "cooked_meat": [
+                "double bacon"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "5 gourmet cheeses",
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "La Ib\u00e9rica de Telepizza",
+        "ingredients": {
+            "sauce": [
+                "tomato and oregano"
+            ],
+            "meat": [],
+            "fish": [],
+            "vegetable": [
+                "fresh tomato"
+            ],
+            "cooked_meat": [],
+            "dough": ["classic"],
+            "after_bake": [
+                "Olive oil",
+                "jamon iberico"
+            ],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Vulcano Nachos",
+        "ingredients": {
+            "sauce": [
+                "barbecue"
+            ],
+            "meat": [],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [],
+            "dough": ["classic"],
+            "after_bake": [
+                "nachos after baking and cut"
+            ],
+            "cheese": [
+                "mozzarella topping",
+                "cheddar cheese cream",
+                "cheddar cheese"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Barbacoa",
+        "ingredients": {
+            "sauce": [
+                "barbecue"
+            ],
+            "meat": [
+                "bacon",
+                "double beef",
+                "marinated chicken"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [
+                "double beef",
+                "marinated chicken"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Carbonara",
+        "ingredients": {
+            "sauce": [
+                "carbonara"
+            ],
+            "meat": [
+                "double bacon"
+            ],
+            "fish": [],
+            "vegetable": [
+                "mushroom"
+            ],
+            "cooked_meat": [
+                "double bacon"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Hawaiana",
+        "ingredients": {
+            "sauce": [
+                "tomato and oregano"
+            ],
+            "meat": [
+                "double york"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [],
+            "dough": ["classic"],
+            "after_bake": [
+                "pineapple"
+            ],
+            "cheese": [
+                "extra mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Carbonara onion",
+        "ingredients": {
+            "sauce": [
+                "carbonara"
+            ],
+            "meat": [
+                "double bacon"
+            ],
+            "fish": [],
+            "vegetable": [
+                "mushroom",
+                "onion"
+            ],
+            "cooked_meat": [
+                "double bacon"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "bacon crispy",
+        "ingredients": {
+            "sauce": [
+                "barbecue"
+            ],
+            "meat": [
+                "bacon",
+                "bacon crispy"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [
+                "bacon crispy"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Barbacoa Creme Queso",
+        "ingredients": {
+            "sauce": [
+                "creme barbecue"
+            ],
+            "meat": [
+                "bacon",
+                "marinated chicken"
+            ],
+            "fish": [],
+            "vegetable": [
+                "mushroom"
+            ],
+            "cooked_meat": [
+                "marinated chicken"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "extra mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Especial de la casa mushroom",
+        "ingredients": {
+            "sauce": [
+                "tomato and oregano"
+            ],
+            "meat": [
+                "bacon",
+                "beef"
+            ],
+            "fish": [],
+            "vegetable": [
+                "bell pepper",
+                "green pepper",
+                "mushroom"
+            ],
+            "cooked_meat": [
+                "beef"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Supreme",
+        "ingredients": {
+            "sauce": [
+                "carbonara",
+                "extra barbecue"
+            ],
+            "meat": [
+                "bacon",
+                "york"
+            ],
+            "fish": [],
+            "vegetable": [
+                "mushroom"
+            ],
+            "cooked_meat": [],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Especial de la casa onion",
+        "ingredients": {
+            "sauce": [
+                "tomato and oregano"
+            ],
+            "meat": [
+                "bacon",
+                "beef"
+            ],
+            "fish": [],
+            "vegetable": [
+                "bell pepper",
+                "green pepper",
+                "onion"
+            ],
+            "cooked_meat": [
+                "beef"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Steak House",
+        "ingredients": {
+            "sauce": [
+                "tomato and oregano",
+                "steak & grill"
+            ],
+            "meat": [
+                "beef",
+                "new orleans pork",
+                "bacon crispy"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [
+                "beef",
+                "new orleans pork",
+                "bacon crispy"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "bacon Cheeseburger",
+        "ingredients": {
+            "sauce": [
+                "burguer"
+            ],
+            "meat": [
+                "mini burger",
+                "bacon"
+            ],
+            "fish": [],
+            "vegetable": [
+                "fresh tomato"
+            ],
+            "cooked_meat": [
+                "mini burger"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping",
+                "cheddar cheese"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Barbacoa Creme tomato",
+        "ingredients": {
+            "sauce": [
+                "creme barbecue"
+            ],
+            "meat": [
+                "bacon",
+                "marinated chicken"
+            ],
+            "fish": [],
+            "vegetable": [
+                "mushroom",
+                "fresh tomato"
+            ],
+            "cooked_meat": [
+                "marinated chicken"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "4 Quesos",
+        "ingredients": {
+            "sauce": [
+                "tomato and oregano"
+            ],
+            "meat": [],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mix 4 cheeses"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Formaggio",
+        "ingredients": {
+            "sauce": [
+                "carbonara"
+            ],
+            "meat": [],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping",
+                "goat cheese",
+                "provolone cheese",
+                "cured swiss cheese"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Delicheese",
+        "ingredients": {
+            "sauce": [
+                "tomato and oregano"
+            ],
+            "meat": [],
+            "fish": [],
+            "vegetable": [
+                "extra candied tomatoe"
+            ],
+            "cooked_meat": [],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping",
+                "extra mix 5 cheeses"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Pepe Peperoni",
+        "ingredients": {
+            "sauce": [
+                "tomato and oregano"
+            ],
+            "meat": [
+                "double pepperoni"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Pizza bacon Hot Dog",
+        "ingredients": {
+            "sauce": [
+                "burguer"
+            ],
+            "meat": [
+                "bacon",
+                "sausage"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Americana",
+        "ingredients": {
+            "sauce": [
+                "tomato and oregano",
+                "steak & grill"
+            ],
+            "meat": [
+                "beef",
+                "bacon"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [
+                "beef"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Bolo\u00f1esa",
+        "ingredients": {
+            "sauce": [
+                "tomato and oregano"
+            ],
+            "meat": [
+                "double beef"
+            ],
+            "fish": [],
+            "vegetable": [
+                "extra candied tomatoe"
+            ],
+            "cooked_meat": [
+                "double beef"
+            ],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": []
+        },
+        "recipe": []
+    },
+    {
+        "name": "De la Huerta",
+        "ingredients": {
+            "sauce": [
+                "tomato and oregano"
+            ],
+            "meat": [],
+            "fish": [],
+            "vegetable": [
+                "green pepper",
+                "roasted pepper",
+                "onion",
+                "black olives",
+                "mushroom"
+            ],
+            "cooked_meat": [],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Cesar Deluxe",
+        "ingredients": {
+            "sauce": [],
+            "meat": [
+                "chicken pops",
+                "bacon crispy"
+            ],
+            "fish": [],
+            "vegetable": [
+                "rocket"
+            ],
+            "cooked_meat": [
+                "chicken pops",
+                "bacon crispy"
+            ],
+            "dough": ["classic"],
+            "after_bake": [
+                "cesar dressing"
+            ],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Florentina",
+        "ingredients": {
+            "sauce": [
+                "carbonara"
+            ],
+            "meat": [],
+            "fish": [],
+            "vegetable": [
+                "rocket",
+                "fresh tomato"
+            ],
+            "cooked_meat": [],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping",
+                "goat cheese"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Infantil",
+        "ingredients": {
+            "sauce": [
+                "tomato"
+            ],
+            "meat": [
+                "york"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [],
+            "dough": ["classic"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "york-bacon Sin Gluten",
+        "ingredients": {
+            "sauce": [],
+            "meat": [],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [],
+            "dough": [],
+            "after_bake": [],
+            "cheese": []
+        },
+        "recipe": []
+    },
+    {
+        "name": "Barbacoa Sin Gluten",
+        "ingredients": {
+            "sauce": [
+                "barbecue"
+            ],
+            "meat": [
+                "bacon",
+                "double beef",
+                "marinated chicken"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [
+                "double beef",
+                "marinated chicken"
+            ],
+            "dough": ["gluten free"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Carbonara Sin Gluten",
+        "ingredients": {
+            "sauce": [
+                "carbonara"
+            ],
+            "meat": [
+                "double bacon"
+            ],
+            "fish": [],
+            "vegetable": [
+                "mushroom"
+            ],
+            "cooked_meat": [
+                "double bacon"
+            ],
+            "dough": ["gluten free"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Sin Gluten 4 Quesos",
+        "ingredients": {
+            "sauce": [
+                "tomato and oregano"
+            ],
+            "meat": [],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [],
+            "dough": ["gluten free"],
+            "after_bake": [],
+            "cheese": [
+                "mix 4 cheeses"
+            ]
+        },
+        "recipe": []
+    },
+    {
+        "name": "Pepperoni Sin Gluten",
+        "ingredients": {
+            "sauce": [
+                "tomato and oregano"
+            ],
+            "meat": [
+                "double pepperoni"
+            ],
+            "fish": [],
+            "vegetable": [],
+            "cooked_meat": [],
+            "dough": ["gluten free"],
+            "after_bake": [],
+            "cheese": [
+                "mozzarella topping"
+            ]
+        },
+        "recipe": []
+    }
+]
