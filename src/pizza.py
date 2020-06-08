@@ -60,9 +60,13 @@ class Pizza(JsonSerializable):
         self.name = name
 
     def set_recipe(self):
+        chop_ingredients = []
+        chop_ingredients.extend(self.ingredients['vegetable'])
+        chop_ingredients.extend(self.ingredients['meat'])
+
         self.recipe = [("extend", self.ingredients['dough']),
                        ("precook", self.ingredients['cooked_meat']),
-                       ("chop", self.ingredients['vegetable'].extend(self.ingredients['meat'])),
+                       ("chop", chop_ingredients),
                        ("spread", self.ingredients['sauce']),
                        ("scatter", self.ingredients['cheese']),
                        ("add_vegetable", self.ingredients['vegetable']),

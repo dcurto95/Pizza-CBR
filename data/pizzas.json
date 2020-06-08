@@ -18,13 +18,78 @@
                 "marinated chicken",
                 "new orleans pork"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "beef",
+                    "marinated chicken",
+                    "new orleans pork"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "beef",
+                    "bacon",
+                    "marinated chicken",
+                    "new orleans pork"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "barbecue"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "beef",
+                    "bacon",
+                    "marinated chicken",
+                    "new orleans pork"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Quadroller Piamontesa",
@@ -40,14 +105,73 @@
                 "caramelized onion"
             ],
             "cooked_meat": [],
-            "dough": ["garlic cheese filled border"],
+            "dough": [
+                "garlic cheese filled border"
+            ],
             "after_bake": [],
             "cheese": [
                 "goat cheese",
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "garlic cheese filled border"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                [
+                    "caramelized onion",
+                    "bacon"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "carbonara"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "goat cheese",
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "caramelized onion"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "bacon"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Quadroller Tennessee",
@@ -66,14 +190,76 @@
             "cooked_meat": [
                 "pulled pork"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping",
                 "provolone cheese"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "pulled pork"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "fresh tomato",
+                    "pulled pork"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "tomato and oregano",
+                    "bourbon barbecue"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping",
+                    "provolone cheese"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "fresh tomato"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "pulled pork"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Barbacoa Gourmet",
@@ -92,14 +278,77 @@
                 "marinated chicken",
                 "double beef"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "5 gourmet cheeses",
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "marinated chicken",
+                    "double beef"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "bacon",
+                    "marinated chicken",
+                    "double beef"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "barbecue"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "5 gourmet cheeses",
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "bacon",
+                    "marinated chicken",
+                    "double beef"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "bacon crispy Gourmet",
@@ -116,14 +365,74 @@
             "cooked_meat": [
                 "bacon crispy"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "5 gourmet cheeses",
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "bacon crispy"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "bacon",
+                    "bacon crispy"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "barbecue"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "5 gourmet cheeses",
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "bacon",
+                    "bacon crispy"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Carbonara Gourmet Queso",
@@ -141,7 +450,9 @@
             "cooked_meat": [
                 "double bacon"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "5 gourmet cheeses",
@@ -149,7 +460,67 @@
                 "extra cheese"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "double bacon"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "mushroom",
+                    "double bacon"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "carbonara"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "5 gourmet cheeses",
+                    "mozzarella topping",
+                    "extra cheese"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "mushroom"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "double bacon"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "T\u00e1ndem Gourmet",
@@ -180,7 +551,73 @@
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "thin"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "beef",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "mushroom",
+                    "onion",
+                    "bacon",
+                    "beef",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "carbonara",
+                    "barbecue"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "mushroom",
+                    "onion"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "bacon",
+                    "beef",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Barbacoa con quarter pounder",
@@ -199,13 +636,75 @@
                 "quarter pounder",
                 "marinated chicken"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "quarter pounder",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "quarter pounder",
+                    "bacon",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "bourbon barbecue"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "quarter pounder",
+                    "bacon",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Carn\u00edvora Gourmet",
@@ -225,14 +724,79 @@
                 "beef",
                 "marinated chicken"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "5 gourmet cheeses",
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "beef",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "beef",
+                    "pepperoni",
+                    "york",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "tomato"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "5 gourmet cheeses",
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "beef",
+                    "pepperoni",
+                    "york",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Barbacoa Meat & Grill",
@@ -253,14 +817,80 @@
                 "marinated chicken",
                 "pulled pork"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "5 gourmet cheeses",
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "beef",
+                    "marinated chicken",
+                    "pulled pork"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "beef",
+                    "bacon",
+                    "marinated chicken",
+                    "pulled pork"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "barbecue"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "5 gourmet cheeses",
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "beef",
+                    "bacon",
+                    "marinated chicken",
+                    "pulled pork"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Carbonara Gourmet onion",
@@ -279,14 +909,77 @@
             "cooked_meat": [
                 "double bacon"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "5 gourmet cheeses",
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "double bacon"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "mushroom",
+                    "onion",
+                    "double bacon"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "carbonara"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "5 gourmet cheeses",
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "mushroom",
+                    "onion"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "double bacon"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "La Ib\u00e9rica de Telepizza",
@@ -300,7 +993,9 @@
                 "fresh tomato"
             ],
             "cooked_meat": [],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [
                 "Olive oil",
                 "jamon iberico"
@@ -309,7 +1004,63 @@
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                [
+                    "fresh tomato"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "tomato and oregano"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "fresh tomato"
+                ]
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                [
+                    "Olive oil",
+                    "jamon iberico"
+                ]
+            ]
+        ]
     },
     {
         "name": "Vulcano Nachos",
@@ -321,7 +1072,9 @@
             "fish": [],
             "vegetable": [],
             "cooked_meat": [],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [
                 "nachos after baking and cut"
             ],
@@ -331,7 +1084,60 @@
                 "cheddar cheese"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                []
+            ],
+            [
+                "spread",
+                [
+                    "barbecue"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping",
+                    "cheddar cheese cream",
+                    "cheddar cheese"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                [
+                    "nachos after baking and cut"
+                ]
+            ]
+        ]
     },
     {
         "name": "Barbacoa",
@@ -350,13 +1156,75 @@
                 "double beef",
                 "marinated chicken"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "double beef",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "bacon",
+                    "double beef",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "barbecue"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "bacon",
+                    "double beef",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Carbonara",
@@ -374,13 +1242,73 @@
             "cooked_meat": [
                 "double bacon"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "double bacon"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "mushroom",
+                    "double bacon"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "carbonara"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "mushroom"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "double bacon"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Hawaiana",
@@ -394,7 +1322,9 @@
             "fish": [],
             "vegetable": [],
             "cooked_meat": [],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [
                 "pineapple"
             ],
@@ -402,7 +1332,62 @@
                 "extra mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                [
+                    "double york"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "tomato and oregano"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "extra mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "double york"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                [
+                    "pineapple"
+                ]
+            ]
+        ]
     },
     {
         "name": "Carbonara onion",
@@ -421,13 +1406,75 @@
             "cooked_meat": [
                 "double bacon"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "double bacon"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "mushroom",
+                    "onion",
+                    "double bacon"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "carbonara"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "mushroom",
+                    "onion"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "double bacon"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "bacon crispy",
@@ -444,13 +1491,72 @@
             "cooked_meat": [
                 "bacon crispy"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "bacon crispy"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "bacon",
+                    "bacon crispy"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "barbecue"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "bacon",
+                    "bacon crispy"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Barbacoa Creme Queso",
@@ -469,13 +1575,75 @@
             "cooked_meat": [
                 "marinated chicken"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "extra mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "mushroom",
+                    "bacon",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "creme barbecue"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "extra mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "mushroom"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "bacon",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Especial de la casa mushroom",
@@ -496,13 +1664,79 @@
             "cooked_meat": [
                 "beef"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "beef"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "bell pepper",
+                    "green pepper",
+                    "mushroom",
+                    "bacon",
+                    "beef"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "tomato and oregano"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "bell pepper",
+                    "green pepper",
+                    "mushroom"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "bacon",
+                    "beef"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Supreme",
@@ -520,13 +1754,74 @@
                 "mushroom"
             ],
             "cooked_meat": [],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                [
+                    "mushroom",
+                    "bacon",
+                    "york"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "carbonara",
+                    "extra barbecue"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "mushroom"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "bacon",
+                    "york"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Especial de la casa onion",
@@ -547,13 +1842,79 @@
             "cooked_meat": [
                 "beef"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "beef"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "bell pepper",
+                    "green pepper",
+                    "onion",
+                    "bacon",
+                    "beef"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "tomato and oregano"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "bell pepper",
+                    "green pepper",
+                    "onion"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "bacon",
+                    "beef"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Steak House",
@@ -574,13 +1935,77 @@
                 "new orleans pork",
                 "bacon crispy"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "beef",
+                    "new orleans pork",
+                    "bacon crispy"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "beef",
+                    "new orleans pork",
+                    "bacon crispy"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "tomato and oregano",
+                    "steak & grill"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "beef",
+                    "new orleans pork",
+                    "bacon crispy"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "bacon Cheeseburger",
@@ -599,14 +2024,77 @@
             "cooked_meat": [
                 "mini burger"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping",
                 "cheddar cheese"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "mini burger"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "fresh tomato",
+                    "mini burger",
+                    "bacon"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "burguer"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping",
+                    "cheddar cheese"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "fresh tomato"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "mini burger",
+                    "bacon"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Barbacoa Creme tomato",
@@ -626,13 +2114,77 @@
             "cooked_meat": [
                 "marinated chicken"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "mushroom",
+                    "fresh tomato",
+                    "bacon",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "creme barbecue"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "mushroom",
+                    "fresh tomato"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "bacon",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "4 Quesos",
@@ -644,13 +2196,64 @@
             "fish": [],
             "vegetable": [],
             "cooked_meat": [],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mix 4 cheeses"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                []
+            ],
+            [
+                "spread",
+                [
+                    "tomato and oregano"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mix 4 cheeses"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Formaggio",
@@ -662,7 +2265,9 @@
             "fish": [],
             "vegetable": [],
             "cooked_meat": [],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping",
@@ -671,7 +2276,59 @@
                 "cured swiss cheese"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                []
+            ],
+            [
+                "spread",
+                [
+                    "carbonara"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping",
+                    "goat cheese",
+                    "provolone cheese",
+                    "cured swiss cheese"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Delicheese",
@@ -685,14 +2342,70 @@
                 "extra candied tomatoe"
             ],
             "cooked_meat": [],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping",
                 "extra mix 5 cheeses"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                [
+                    "extra candied tomatoe"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "tomato and oregano"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping",
+                    "extra mix 5 cheeses"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "extra candied tomatoe"
+                ]
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Pepe Peperoni",
@@ -706,13 +2419,68 @@
             "fish": [],
             "vegetable": [],
             "cooked_meat": [],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                [
+                    "double pepperoni"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "tomato and oregano"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "double pepperoni"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Pizza bacon Hot Dog",
@@ -727,13 +2495,70 @@
             "fish": [],
             "vegetable": [],
             "cooked_meat": [],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                [
+                    "bacon",
+                    "sausage"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "burguer"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "bacon",
+                    "sausage"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Americana",
@@ -751,13 +2576,73 @@
             "cooked_meat": [
                 "beef"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "beef"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "beef",
+                    "bacon"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "tomato and oregano",
+                    "steak & grill"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "beef",
+                    "bacon"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Bolo\u00f1esa",
@@ -775,11 +2660,69 @@
             "cooked_meat": [
                 "double beef"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": []
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "double beef"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "extra candied tomatoe",
+                    "double beef"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "tomato and oregano"
+                ]
+            ],
+            [
+                "scatter",
+                []
+            ],
+            [
+                "add_vegetable",
+                [
+                    "extra candied tomatoe"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "double beef"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "De la Huerta",
@@ -797,13 +2740,76 @@
                 "mushroom"
             ],
             "cooked_meat": [],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                [
+                    "green pepper",
+                    "roasted pepper",
+                    "onion",
+                    "black olives",
+                    "mushroom"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "tomato and oregano"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "green pepper",
+                    "roasted pepper",
+                    "onion",
+                    "black olives",
+                    "mushroom"
+                ]
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Cesar Deluxe",
@@ -821,7 +2827,9 @@
                 "chicken pops",
                 "bacon crispy"
             ],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [
                 "cesar dressing"
             ],
@@ -829,7 +2837,68 @@
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "chicken pops",
+                    "bacon crispy"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "rocket",
+                    "chicken pops",
+                    "bacon crispy"
+                ]
+            ],
+            [
+                "spread",
+                []
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "rocket"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "chicken pops",
+                    "bacon crispy"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                [
+                    "cesar dressing"
+                ]
+            ]
+        ]
     },
     {
         "name": "Florentina",
@@ -844,14 +2913,72 @@
                 "fresh tomato"
             ],
             "cooked_meat": [],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping",
                 "goat cheese"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                [
+                    "rocket",
+                    "fresh tomato"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "carbonara"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping",
+                    "goat cheese"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "rocket",
+                    "fresh tomato"
+                ]
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Infantil",
@@ -865,13 +2992,68 @@
             "fish": [],
             "vegetable": [],
             "cooked_meat": [],
-            "dough": ["classic"],
+            "dough": [
+                "classic"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "classic"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                [
+                    "york"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "tomato"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "york"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "york-bacon Sin Gluten",
@@ -885,7 +3067,50 @@
             "after_bake": [],
             "cheese": []
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                []
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                []
+            ],
+            [
+                "spread",
+                []
+            ],
+            [
+                "scatter",
+                []
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Barbacoa Sin Gluten",
@@ -904,13 +3129,75 @@
                 "double beef",
                 "marinated chicken"
             ],
-            "dough": ["gluten free"],
+            "dough": [
+                "gluten free"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "gluten free"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "double beef",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "bacon",
+                    "double beef",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "barbecue"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "bacon",
+                    "double beef",
+                    "marinated chicken"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Carbonara Sin Gluten",
@@ -928,13 +3215,73 @@
             "cooked_meat": [
                 "double bacon"
             ],
-            "dough": ["gluten free"],
+            "dough": [
+                "gluten free"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "gluten free"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "double bacon"
+                ]
+            ],
+            [
+                "chop",
+                [
+                    "mushroom",
+                    "double bacon"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "carbonara"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                [
+                    "mushroom"
+                ]
+            ],
+            [
+                "add_meat",
+                [
+                    "double bacon"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Sin Gluten 4 Quesos",
@@ -946,13 +3293,64 @@
             "fish": [],
             "vegetable": [],
             "cooked_meat": [],
-            "dough": ["gluten free"],
+            "dough": [
+                "gluten free"
+            ],
             "after_bake": [],
             "cheese": [
                 "mix 4 cheeses"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "gluten free"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                []
+            ],
+            [
+                "spread",
+                [
+                    "tomato and oregano"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mix 4 cheeses"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     },
     {
         "name": "Pepperoni Sin Gluten",
@@ -966,12 +3364,67 @@
             "fish": [],
             "vegetable": [],
             "cooked_meat": [],
-            "dough": ["gluten free"],
+            "dough": [
+                "gluten free"
+            ],
             "after_bake": [],
             "cheese": [
                 "mozzarella topping"
             ]
         },
-        "recipe": []
+        "recipe": [
+            [
+                "extend",
+                [
+                    "gluten free"
+                ]
+            ],
+            [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                [
+                    "double pepperoni"
+                ]
+            ],
+            [
+                "spread",
+                [
+                    "tomato and oregano"
+                ]
+            ],
+            [
+                "scatter",
+                [
+                    "mozzarella topping"
+                ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                [
+                    "double pepperoni"
+                ]
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
+                "bake",
+                [
+                    "pizza"
+                ]
+            ],
+            [
+                "add_after_bake",
+                []
+            ]
+        ]
     }
 ]
