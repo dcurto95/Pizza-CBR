@@ -29,14 +29,16 @@ vegetable = {'fresh tomato', 'caramelized onion', 'rocket', 'extra candied tomat
 
 
 class Pizza(JsonSerializable):
-    def __init__(self, name='', ingredients=None):
+    def __init__(self, name='', ingredients=None, recipe=None):
         if ingredients is None:
             ingredients = {k: [] for k in
                            ['sauce', 'meat', 'fish', 'vegetable', 'cooked_meat', 'dough', 'after_bake', 'cheese']}
+        if recipe is None:
+            recipe = []
 
         self.name = name
         self.ingredients = ingredients
-        self.recipe = []
+        self.recipe = recipe
 
     def add_ingredient(self, ingredient):
         if ingredient in sauce:
@@ -74,3 +76,9 @@ class Pizza(JsonSerializable):
                        ("add_fish", self.ingredients['fish']),
                        ("bake", ["pizza"]),
                        ("add_after_bake", self.ingredients['after_bake'])]
+
+    def get_all_ingredients(self):
+        return [val for sublist in list(self.ingredients.values()) for val in sublist]
+
+    def is_ingredient_in_pizza(self, ingredient):
+        return ingredient in ' '.join(self.get_all_ingredients())
