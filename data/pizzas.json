@@ -239,7 +239,7 @@
         ],
         "ingredients": [
             "5 gourmet cheeses",
-            "double beef",
+            "beef",
             "mozzarella topping",
             "bacon",
             "marinated chicken"
@@ -255,7 +255,7 @@
                 "precook",
                 [
                     "marinated chicken",
-                    "double beef"
+                    "beef"
                 ]
             ],
             [
@@ -263,7 +263,7 @@
                 [
                     "bacon",
                     "marinated chicken",
-                    "double beef"
+                    "beef"
                 ]
             ],
             [
@@ -288,7 +288,7 @@
                 [
                     "bacon",
                     "marinated chicken",
-                    "double beef"
+                    "beef"
                 ]
             ],
             [
@@ -392,7 +392,7 @@
         "ingredients": [
             "5 gourmet cheeses",
             "mushroom",
-            "double bacon",
+            "bacon",
             "mozzarella topping",
             "extra cheese"
         ],
@@ -406,14 +406,14 @@
             [
                 "precook",
                 [
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
                 "chop",
                 [
                     "mushroom",
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
@@ -439,7 +439,7 @@
             [
                 "add_meat",
                 [
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
@@ -794,7 +794,7 @@
             "onion",
             "5 gourmet cheeses",
             "mushroom",
-            "double bacon",
+            "bacon",
             "mozzarella topping"
         ],
         "recipe": [
@@ -807,7 +807,7 @@
             [
                 "precook",
                 [
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
@@ -815,7 +815,7 @@
                 [
                     "mushroom",
                     "onion",
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
@@ -841,7 +841,7 @@
             [
                 "add_meat",
                 [
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
@@ -1011,7 +1011,7 @@
         ],
         "ingredients": [
             "marinated chicken",
-            "double beef",
+            "beef",
             "mozzarella topping",
             "bacon"
         ],
@@ -1025,7 +1025,7 @@
             [
                 "precook",
                 [
-                    "double beef",
+                    "beef",
                     "marinated chicken"
                 ]
             ],
@@ -1033,7 +1033,7 @@
                 "chop",
                 [
                     "bacon",
-                    "double beef",
+                    "beef",
                     "marinated chicken"
                 ]
             ],
@@ -1057,7 +1057,7 @@
                 "add_meat",
                 [
                     "bacon",
-                    "double beef",
+                    "beef",
                     "marinated chicken"
                 ]
             ],
@@ -1088,7 +1088,7 @@
         "ingredients": [
             "mozzarella topping",
             "mushroom",
-            "double bacon"
+            "bacon"
         ],
         "recipe": [
             [
@@ -1100,14 +1100,14 @@
             [
                 "precook",
                 [
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
                 "chop",
                 [
                     "mushroom",
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
@@ -1131,7 +1131,7 @@
             [
                 "add_meat",
                 [
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
@@ -1160,7 +1160,7 @@
         ],
         "ingredients": [
             "pineapple",
-            "double york",
+            "york",
             "extra mozzarella topping"
         ],
         "recipe": [
@@ -1177,7 +1177,7 @@
             [
                 "chop",
                 [
-                    "double york"
+                    "york"
                 ]
             ],
             [
@@ -1199,7 +1199,7 @@
             [
                 "add_meat",
                 [
-                    "double york"
+                    "york"
                 ]
             ],
             [
@@ -1232,7 +1232,7 @@
             "onion",
             "mozzarella topping",
             "mushroom",
-            "double bacon"
+            "bacon"
         ],
         "recipe": [
             [
@@ -1244,7 +1244,7 @@
             [
                 "precook",
                 [
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
@@ -1252,7 +1252,7 @@
                 [
                     "mushroom",
                     "onion",
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
@@ -1277,7 +1277,7 @@
             [
                 "add_meat",
                 [
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
@@ -2128,7 +2128,7 @@
             "tomato and oregano"
         ],
         "ingredients": [
-            "double pepperoni",
+            "pepperoni",
             "mozzarella topping"
         ],
         "recipe": [
@@ -2145,7 +2145,7 @@
             [
                 "chop",
                 [
-                    "double pepperoni"
+                    "pepperoni"
                 ]
             ],
             [
@@ -2167,7 +2167,7 @@
             [
                 "add_meat",
                 [
-                    "double pepperoni"
+                    "pepperoni"
                 ]
             ],
             [
@@ -2340,7 +2340,7 @@
         ],
         "ingredients": [
             "extra candied tomatoe",
-            "double beef"
+            "beef"
         ],
         "recipe": [
             [
@@ -2352,14 +2352,14 @@
             [
                 "precook",
                 [
-                    "double beef"
+                    "beef"
                 ]
             ],
             [
                 "chop",
                 [
                     "extra candied tomatoe",
-                    "double beef"
+                    "beef"
                 ]
             ],
             [
@@ -2381,7 +2381,7 @@
             [
                 "add_meat",
                 [
-                    "double beef"
+                    "beef"
                 ]
             ],
             [
@@ -2754,7 +2754,7 @@
         ],
         "ingredients": [
             "marinated chicken",
-            "double beef",
+            "beef",
             "mozzarella topping",
             "bacon"
         ],
@@ -2768,7 +2768,7 @@
             [
                 "precook",
                 [
-                    "double beef",
+                    "beef",
                     "marinated chicken"
                 ]
             ],
@@ -2776,7 +2776,7 @@
                 "chop",
                 [
                     "bacon",
-                    "double beef",
+                    "beef",
                     "marinated chicken"
                 ]
             ],
@@ -2800,7 +2800,7 @@
                 "add_meat",
                 [
                     "bacon",
-                    "double beef",
+                    "beef",
                     "marinated chicken"
                 ]
             ],
@@ -2831,7 +2831,7 @@
         "ingredients": [
             "mozzarella topping",
             "mushroom",
-            "double bacon"
+            "bacon"
         ],
         "recipe": [
             [
@@ -2843,14 +2843,14 @@
             [
                 "precook",
                 [
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
                 "chop",
                 [
                     "mushroom",
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
@@ -2874,7 +2874,7 @@
             [
                 "add_meat",
                 [
-                    "double bacon"
+                    "bacon"
                 ]
             ],
             [
@@ -2964,7 +2964,7 @@
             "tomato and oregano"
         ],
         "ingredients": [
-            "double pepperoni",
+            "pepperoni",
             "mozzarella topping"
         ],
         "recipe": [
@@ -2981,7 +2981,7 @@
             [
                 "chop",
                 [
-                    "double pepperoni"
+                    "pepperoni"
                 ]
             ],
             [
@@ -3003,7 +3003,7 @@
             [
                 "add_meat",
                 [
-                    "double pepperoni"
+                    "pepperoni"
                 ]
             ],
             [

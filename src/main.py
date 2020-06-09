@@ -1,24 +1,69 @@
-import json
+from tkinter import *
+from tkinter import ttk
 
-import numpy as np
+from pizza_knowledge_base import KnowledgeBase
 
-from pizza import Pizza
+def select_ingredient():
+    result = ""
+    for ingredient in ingredient_listbox.curselection():
+        result = result + str(ingredient_listbox.get(ingredient))
+    print(result)
 
-if __name__ == '__main__':
-    data_file = open('../data/pizzas.json', 'r', encoding='utf-8')
-    pizza_list = json.load(data_file)
-    data_file.close()
 
-    pizza_list = [Pizza(name=pizza['name'], dough=pizza['dough'], sauce=pizza['sauce'],
-                        ingredients=pizza['ingredients'], recipe=pizza['recipe']) for pizza in pizza_list]
+root = Tk()
+root.title("Pizza recipes CBR ")
+root.iconbitmap('logo.ico')
+root.geometry("600x600")
 
-    print("Hi welcome to MAI-pizza!")
-    ingredients = input("What ingredients do you like? (splitted by , )\n")
-    ingredients_list = ingredients.lower().split(',')
+#Label Select ingredients
+ingredient_label = Label(root, text="Select the ingredients you want")
+ingredient_label.pack()
 
-    pizza_votes = np.zeros(len(pizza_list))
-    for ingredient in ingredients_list:
-        for i, pizza in enumerate(pizza_list):
-            pizza_votes[i] += 1 if pizza.is_ingredient_in_pizza(ingredient) else 0
-    print("Best pizza:")
-    print(pizza_list[np.argmax(pizza_votes)])
+#Create frame and scrollbar
+ingredient_frame = Frame(root)
+ingredient_scrollbar = Scrollbar(ingredient_frame, orient=VERTICAL)
+
+
+ingredient_listbox = Listbox(ingredient_frame, width=50, yscrollcommand=ingredient_scrollbar.set, selectmode=MULTIPLE)
+
+#Configure scrollbar
+ingredient_scrollbar.config(command=ingredient_listbox.yview)
+ingredient_scrollbar.pack(side=RIGHT, fill=Y)
+ingredient_frame.pack()
+ingredient_listbox.pack(pady=5)
+
+#Insert ingredients
+ingredients= ['chicken', 'bacon', 'egg', 'tomato', 'cheese','sausage', 'chile','olives','tuna','sausage','pineapple','onion','cucumber']
+
+for ingredient in ingredients:
+    ingredient_listbox.insert(END, ingredient)
+
+#Button add ingredient
+add_btn = Button(root, text="Add ingredient", command=select_ingredient)
+add_btn.pack(pady=5)
+
+
+#Label select sauces
+sauces_label = Label(root, text="Select the sauce")
+sauces_label.pack()
+
+
+#Dropdown sauces
+sauces = KnowledgeBase.sauce
+
+for sauce in sauces:
+    check_btn = Checkbutton(root, text=sauce)
+    check_btn.pack()
+
+#Label Select Dough
+dough_label = Label(root, text="Select the dough")
+dough_label.pack()
+
+#Dropdown dough
+dough_types = KnowledgeBase.dough
+
+dough_dropdown = ttk.Combobox(root,value=dough_types, state="readonly")
+dough_dropdown.current(1)
+dough_dropdown.pack()
+
+root.mainloop()

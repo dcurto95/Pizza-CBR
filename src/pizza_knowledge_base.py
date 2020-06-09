@@ -1,21 +1,21 @@
 class KnowledgeBase:
-    sauce = {'tomato', 'steak & grill', 'bourbon barbecue', 'tomato and oregano', 'carbonara', 'creme barbecue',
-             'barbecue', 'burguer', 'extra barbecue'}
-    meat = {'sausage', 'marinated chicken', 'double york', 'double beef', 'pepperoni', 'new orleans pork',
-            'quarter pounder', 'bacon crispy', 'beef', 'bacon', 'chicken pops', 'double bacon',
-            'pulled pork', 'york', 'double pepperoni', 'mini burger'}
-    fish = {'tuna', 'prawn', 'anchovy'}
-    cooked_meat = {'marinated chicken', 'double beef', 'new orleans pork', 'quarter pounder', 'bacon crispy',
-                   'beef', 'chicken pops', 'double bacon', 'pulled pork', 'mini burger'}
-    cheese = {'extra cheese', 'goat cheese', 'cheddar cheese', 'extra mix 5 cheeses',
+    sauce = ['tomato', 'steak & grill', 'bourbon barbecue', 'tomato and oregano', 'carbonara', 'creme barbecue',
+             'barbecue', 'burger', 'extra barbecue']
+    meat = ['sausage', 'marinated chicken', 'york', 'beef', 'pepperoni', 'new orleans pork',
+            'quarter pounder', 'bacon crispy', 'beef', 'bacon', 'chicken pops', 'bacon',
+            'pulled pork', 'york', 'pepperoni', 'mini burger']
+    fish = ['tuna', 'prawn', 'anchovy']
+    cooked_meat = ['marinated chicken', 'beef', 'new orleans pork', 'quarter pounder', 'bacon crispy',
+                   'beef', 'chicken pops', 'bacon', 'pulled pork', 'mini burger']
+    cheese = ['extra cheese', 'goat cheese', 'cheddar cheese', 'extra mix 5 cheeses',
               'provolone cheese', '5 gourmet cheeses', 'mix 4 cheeses', 'cured swiss cheese',
               'extra mozzarella topping', 'mozzarella topping',
-              'cheddar cheese cream'}
-    dough = {'thin', 'classic', 'quadroller', '3 floors', 'garlic cheese filled border', 'gluten free'}
-    after_bake = {'nachos after baking and cut', 'pineapple', 'oregano', 'jamon iberico',
-                  'cesar dressing', 'olive oil'}
-    vegetable = {'fresh tomato', 'caramelized onion', 'rocket', 'extra candied tomatoe', 'onion', 'green pepper',
-                 'roasted pepper', 'black olives', 'mushroom', 'bell pepper'}
+              'cheddar cheese cream']
+    dough = ['thin', 'classic', 'quadroller', '3 floors', 'garlic cheese filled border', 'gluten free']
+    after_bake = ['nachos after baking and cut', 'pineapple', 'oregano', 'jamon iberico',
+                  'cesar dressing', 'olive oil']
+    vegetable = ['fresh tomato', 'caramelized onion', 'rocket', 'extra candied tomatoe', 'onion', 'green pepper',
+                 'roasted pepper', 'black olives', 'mushroom', 'bell pepper']
 
 
 def group_ingredients(ingredients):
