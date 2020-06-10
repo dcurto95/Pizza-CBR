@@ -394,7 +394,6 @@
             "mushroom",
             "bacon",
             "mozzarella topping",
-            "extra cheese"
         ],
         "recipe": [
             [
@@ -427,7 +426,6 @@
                 [
                     "5 gourmet cheeses",
                     "mozzarella topping",
-                    "extra cheese"
                 ]
             ],
             [
@@ -1161,7 +1159,7 @@
         "ingredients": [
             "pineapple",
             "york",
-            "extra mozzarella topping"
+            "mozzarella topping"
         ],
         "recipe": [
             [
@@ -1189,7 +1187,7 @@
             [
                 "scatter",
                 [
-                    "extra mozzarella topping"
+                    "mozzarella topping"
                 ]
             ],
             [
@@ -1379,7 +1377,7 @@
         "ingredients": [
             "mushroom",
             "marinated chicken",
-            "extra mozzarella topping",
+            "mozzarella topping",
             "bacon"
         ],
         "recipe": [
@@ -1412,7 +1410,7 @@
             [
                 "scatter",
                 [
-                    "extra mozzarella topping"
+                    "mozzarella topping"
                 ]
             ],
             [
@@ -1533,7 +1531,7 @@
         ],
         "sauce": [
             "carbonara",
-            "extra barbecue"
+            "barbecue"
         ],
         "ingredients": [
             "york",
@@ -1564,7 +1562,7 @@
                 "spread",
                 [
                     "carbonara",
-                    "extra barbecue"
+                    "barbecue"
                 ]
             ],
             [
@@ -2061,7 +2059,7 @@
         "ingredients": [
             "extra candied tomatoe",
             "mozzarella topping",
-            "extra mix 5 cheeses"
+            "mix 4 cheeses"
         ],
         "recipe": [
             [
@@ -2090,7 +2088,7 @@
                 "scatter",
                 [
                     "mozzarella topping",
-                    "extra mix 5 cheeses"
+                    "mix 4 cheeses"
                 ]
             ],
             [
