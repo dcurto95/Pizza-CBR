@@ -57,5 +57,6 @@ if __name__ == '__main__':
 
     constraints = {'dough': 'classic', 'sauce': ['barbacue'], 'toppings_must': ['bacon', 'york'], 'toppings_must_not': ['onions']}
 
-    res = retrieve(case_base, constraints, k=5)
-    print(res)
+    result = retrieve(case_base, constraints, k=5)
+    for r in result:
+        print(r)

@@ -20,3 +20,6 @@ class Pizza:
 
     def is_topping_in_pizza(self, topping):
         return topping in self.toppings
+
+    def __repr__(self):
+        return {'dough': self.dough, 'sauce': self.sauce, 'toppings': self.toppings}.__str__()
