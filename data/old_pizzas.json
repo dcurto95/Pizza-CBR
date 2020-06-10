@@ -2693,56 +2693,6 @@
         ]
     },
     {
-        "name": "york-bacon Sin Gluten",
-        "dough": [],
-        "sauce": [],
-        "toppings": [],
-        "recipe": [
-            [
-                "extend",
-                []
-            ],
-            [
-                "precook",
-                []
-            ],
-            [
-                "chop",
-                []
-            ],
-            [
-                "spread",
-                []
-            ],
-            [
-                "scatter",
-                []
-            ],
-            [
-                "add_vegetable",
-                []
-            ],
-            [
-                "add_meat",
-                []
-            ],
-            [
-                "add_fish",
-                []
-            ],
-            [
-                "bake",
-                [
-                    "pizza"
-                ]
-            ],
-            [
-                "add_after_bake",
-                []
-            ]
-        ]
-    },
-    {
         "name": "Barbacoa Sin Gluten",
         "dough": [
             "gluten free"
