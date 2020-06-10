@@ -51,6 +51,10 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
                     "beef",
@@ -60,10 +64,18 @@
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -90,9 +102,7 @@
             ],
             [
                 "precook",
-                [
-                    "caramelized onion"
-                ]
+                []
             ],
             [
                 "chop",
@@ -127,10 +137,18 @@
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -196,10 +214,18 @@
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -228,16 +254,16 @@
             [
                 "precook",
                 [
-                    "beef",
-                    "marinated chicken"
+                    "marinated chicken",
+                    "beef"
                 ]
             ],
             [
                 "chop",
                 [
-                    "beef",
                     "bacon",
-                    "marinated chicken"
+                    "marinated chicken",
+                    "beef"
                 ]
             ],
             [
@@ -254,18 +280,30 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
-                    "beef",
                     "bacon",
-                    "marinated chicken"
+                    "marinated chicken",
+                    "beef"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -299,8 +337,8 @@
             [
                 "chop",
                 [
-                    "bacon crispy",
-                    "bacon"
+                    "bacon",
+                    "bacon crispy"
                 ]
             ],
             [
@@ -317,17 +355,29 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
-                    "bacon crispy",
-                    "bacon"
+                    "bacon",
+                    "bacon crispy"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -350,6 +400,12 @@
                 "extend",
                 [
                     "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "bacon"
                 ]
             ],
             [
@@ -385,10 +441,18 @@
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -426,10 +490,10 @@
             [
                 "chop",
                 [
-                    "onion",
                     "mushroom",
-                    "beef",
+                    "onion",
                     "bacon",
+                    "beef",
                     "marinated chicken"
                 ]
             ],
@@ -449,23 +513,31 @@
             [
                 "add_vegetable",
                 [
-                    "onion",
-                    "mushroom"
+                    "mushroom",
+                    "onion"
                 ]
             ],
             [
                 "add_meat",
                 [
-                    "beef",
                     "bacon",
+                    "beef",
                     "marinated chicken"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -501,8 +573,8 @@
                 "chop",
                 [
                     "quarter pounder",
-                    "marinated chicken",
-                    "bacon"
+                    "bacon",
+                    "marinated chicken"
                 ]
             ],
             [
@@ -518,18 +590,30 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
                     "quarter pounder",
-                    "marinated chicken",
-                    "bacon"
+                    "bacon",
+                    "marinated chicken"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -567,9 +651,9 @@
                 "chop",
                 [
                     "beef",
+                    "pepperoni",
                     "york",
-                    "marinated chicken",
-                    "pepperoni"
+                    "marinated chicken"
                 ]
             ],
             [
@@ -586,19 +670,31 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
                     "beef",
+                    "pepperoni",
                     "york",
-                    "marinated chicken",
-                    "pepperoni"
+                    "marinated chicken"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -656,6 +752,10 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
                     "beef",
@@ -665,10 +765,18 @@
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -695,10 +803,16 @@
                 ]
             ],
             [
+                "precook",
+                [
+                    "bacon"
+                ]
+            ],
+            [
                 "chop",
                 [
-                    "onion",
                     "mushroom",
+                    "onion",
                     "bacon"
                 ]
             ],
@@ -718,8 +832,8 @@
             [
                 "add_vegetable",
                 [
-                    "onion",
-                    "mushroom"
+                    "mushroom",
+                    "onion"
                 ]
             ],
             [
@@ -729,10 +843,18 @@
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -756,6 +878,10 @@
                 [
                     "classic"
                 ]
+            ],
+            [
+                "precook",
+                []
             ],
             [
                 "chop",
@@ -782,6 +908,14 @@
                 ]
             ],
             [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
@@ -790,6 +924,7 @@
             [
                 "add_after_bake",
                 [
+                    "Olive oil",
                     "jamon iberico"
                 ]
             ]
@@ -817,6 +952,14 @@
                 ]
             ],
             [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                []
+            ],
+            [
                 "spread",
                 [
                     "barbecue"
@@ -825,10 +968,22 @@
             [
                 "scatter",
                 [
-                    "cheddar cheese",
                     "mozzarella topping",
-                    "cheddar cheese cream"
+                    "cheddar cheese cream",
+                    "cheddar cheese"
                 ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
@@ -868,16 +1023,16 @@
             [
                 "precook",
                 [
-                    "marinated chicken",
-                    "beef"
+                    "beef",
+                    "marinated chicken"
                 ]
             ],
             [
                 "chop",
                 [
-                    "marinated chicken",
+                    "bacon",
                     "beef",
-                    "bacon"
+                    "marinated chicken"
                 ]
             ],
             [
@@ -893,18 +1048,30 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
-                    "marinated chicken",
+                    "bacon",
                     "beef",
-                    "bacon"
+                    "marinated chicken"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -926,6 +1093,12 @@
                 "extend",
                 [
                     "classic"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "bacon"
                 ]
             ],
             [
@@ -960,10 +1133,18 @@
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -988,6 +1169,10 @@
                 ]
             ],
             [
+                "precook",
+                []
+            ],
+            [
                 "chop",
                 [
                     "york"
@@ -1006,10 +1191,18 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
                     "york"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
@@ -1047,10 +1240,16 @@
                 ]
             ],
             [
+                "precook",
+                [
+                    "bacon"
+                ]
+            ],
+            [
                 "chop",
                 [
-                    "onion",
                     "mushroom",
+                    "onion",
                     "bacon"
                 ]
             ],
@@ -1069,8 +1268,8 @@
             [
                 "add_vegetable",
                 [
-                    "onion",
-                    "mushroom"
+                    "mushroom",
+                    "onion"
                 ]
             ],
             [
@@ -1080,10 +1279,18 @@
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1116,8 +1323,8 @@
             [
                 "chop",
                 [
-                    "bacon crispy",
-                    "bacon"
+                    "bacon",
+                    "bacon crispy"
                 ]
             ],
             [
@@ -1133,17 +1340,29 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
-                    "bacon crispy",
-                    "bacon"
+                    "bacon",
+                    "bacon crispy"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1178,8 +1397,8 @@
                 "chop",
                 [
                     "mushroom",
-                    "marinated chicken",
-                    "bacon"
+                    "bacon",
+                    "marinated chicken"
                 ]
             ],
             [
@@ -1203,15 +1422,23 @@
             [
                 "add_meat",
                 [
-                    "marinated chicken",
-                    "bacon"
+                    "bacon",
+                    "marinated chicken"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1247,11 +1474,11 @@
             [
                 "chop",
                 [
-                    "mushroom",
-                    "green pepper",
                     "bell pepper",
-                    "beef",
-                    "bacon"
+                    "green pepper",
+                    "mushroom",
+                    "bacon",
+                    "beef"
                 ]
             ],
             [
@@ -1269,23 +1496,31 @@
             [
                 "add_vegetable",
                 [
-                    "mushroom",
+                    "bell pepper",
                     "green pepper",
-                    "bell pepper"
+                    "mushroom"
                 ]
             ],
             [
                 "add_meat",
                 [
-                    "beef",
-                    "bacon"
+                    "bacon",
+                    "beef"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1312,11 +1547,15 @@
                 ]
             ],
             [
+                "precook",
+                []
+            ],
+            [
                 "chop",
                 [
                     "mushroom",
-                    "york",
-                    "bacon"
+                    "bacon",
+                    "york"
                 ]
             ],
             [
@@ -1341,15 +1580,23 @@
             [
                 "add_meat",
                 [
-                    "york",
-                    "bacon"
+                    "bacon",
+                    "york"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1385,11 +1632,11 @@
             [
                 "chop",
                 [
-                    "onion",
-                    "green pepper",
                     "bell pepper",
-                    "beef",
-                    "bacon"
+                    "green pepper",
+                    "onion",
+                    "bacon",
+                    "beef"
                 ]
             ],
             [
@@ -1407,23 +1654,31 @@
             [
                 "add_vegetable",
                 [
-                    "onion",
+                    "bell pepper",
                     "green pepper",
-                    "bell pepper"
+                    "onion"
                 ]
             ],
             [
                 "add_meat",
                 [
-                    "beef",
-                    "bacon"
+                    "bacon",
+                    "beef"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1479,6 +1734,10 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
                     "beef",
@@ -1487,10 +1746,18 @@
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1526,8 +1793,8 @@
                 "chop",
                 [
                     "fresh tomato",
-                    "bacon",
-                    "mini burger"
+                    "mini burger",
+                    "bacon"
                 ]
             ],
             [
@@ -1539,8 +1806,8 @@
             [
                 "scatter",
                 [
-                    "cheddar cheese",
-                    "mozzarella topping"
+                    "mozzarella topping",
+                    "cheddar cheese"
                 ]
             ],
             [
@@ -1552,15 +1819,23 @@
             [
                 "add_meat",
                 [
-                    "bacon",
-                    "mini burger"
+                    "mini burger",
+                    "bacon"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1595,8 +1870,8 @@
             [
                 "chop",
                 [
-                    "fresh tomato",
                     "mushroom",
+                    "fresh tomato",
                     "bacon",
                     "marinated chicken"
                 ]
@@ -1616,8 +1891,8 @@
             [
                 "add_vegetable",
                 [
-                    "fresh tomato",
-                    "mushroom"
+                    "mushroom",
+                    "fresh tomato"
                 ]
             ],
             [
@@ -1628,10 +1903,18 @@
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1654,6 +1937,14 @@
                 ]
             ],
             [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                []
+            ],
+            [
                 "spread",
                 [
                     "tomato and oregano"
@@ -1666,10 +1957,26 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1695,6 +2002,14 @@
                 ]
             ],
             [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                []
+            ],
+            [
                 "spread",
                 [
                     "carbonara"
@@ -1703,17 +2018,33 @@
             [
                 "scatter",
                 [
-                    "provolone cheese",
-                    "cured swiss cheese",
                     "mozzarella topping",
-                    "goat cheese"
+                    "goat cheese",
+                    "provolone cheese",
+                    "cured swiss cheese"
                 ]
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1736,6 +2067,10 @@
                 [
                     "classic"
                 ]
+            ],
+            [
+                "precook",
+                []
             ],
             [
                 "chop",
@@ -1763,10 +2098,22 @@
                 ]
             ],
             [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1790,6 +2137,10 @@
                 ]
             ],
             [
+                "precook",
+                []
+            ],
+            [
                 "chop",
                 [
                     "pepperoni"
@@ -1808,16 +2159,28 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
                     "pepperoni"
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1842,10 +2205,14 @@
                 ]
             ],
             [
+                "precook",
+                []
+            ],
+            [
                 "chop",
                 [
-                    "sausage",
-                    "bacon"
+                    "bacon",
+                    "sausage"
                 ]
             ],
             [
@@ -1861,17 +2228,29 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
-                    "sausage",
-                    "bacon"
+                    "bacon",
+                    "sausage"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1923,6 +2302,10 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
                     "beef",
@@ -1930,10 +2313,18 @@
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -1976,6 +2367,10 @@
                 ]
             ],
             [
+                "scatter",
+                []
+            ],
+            [
                 "add_vegetable",
                 [
                     "extra candied tomatoe"
@@ -1988,10 +2383,18 @@
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -2020,18 +2423,16 @@
             ],
             [
                 "precook",
-                [
-                    "roasted pepper"
-                ]
+                []
             ],
             [
                 "chop",
                 [
+                    "green pepper",
                     "roasted pepper",
-                    "black olives",
                     "onion",
-                    "mushroom",
-                    "green pepper"
+                    "black olives",
+                    "mushroom"
                 ]
             ],
             [
@@ -2049,18 +2450,30 @@
             [
                 "add_vegetable",
                 [
+                    "green pepper",
                     "roasted pepper",
-                    "black olives",
                     "onion",
-                    "mushroom",
-                    "green pepper"
+                    "black olives",
+                    "mushroom"
                 ]
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -2087,16 +2500,16 @@
             [
                 "precook",
                 [
-                    "bacon crispy",
-                    "chicken pops"
+                    "chicken pops",
+                    "bacon crispy"
                 ]
             ],
             [
                 "chop",
                 [
                     "rocket",
-                    "bacon crispy",
-                    "chicken pops"
+                    "chicken pops",
+                    "bacon crispy"
                 ]
             ],
             [
@@ -2118,9 +2531,13 @@
             [
                 "add_meat",
                 [
-                    "bacon crispy",
-                    "chicken pops"
+                    "chicken pops",
+                    "bacon crispy"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
@@ -2158,10 +2575,14 @@
                 ]
             ],
             [
+                "precook",
+                []
+            ],
+            [
                 "chop",
                 [
-                    "fresh tomato",
-                    "rocket"
+                    "rocket",
+                    "fresh tomato"
                 ]
             ],
             [
@@ -2180,15 +2601,27 @@
             [
                 "add_vegetable",
                 [
-                    "fresh tomato",
-                    "rocket"
+                    "rocket",
+                    "fresh tomato"
                 ]
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -2212,6 +2645,10 @@
                 ]
             ],
             [
+                "precook",
+                []
+            ],
+            [
                 "chop",
                 [
                     "york"
@@ -2230,16 +2667,28 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
                     "york"
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -2254,7 +2703,31 @@
                 []
             ],
             [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                []
+            ],
+            [
                 "spread",
+                []
+            ],
+            [
+                "scatter",
+                []
+            ],
+            [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
                 []
             ],
             [
@@ -2262,6 +2735,10 @@
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -2289,16 +2766,16 @@
             [
                 "precook",
                 [
-                    "marinated chicken",
-                    "beef"
+                    "beef",
+                    "marinated chicken"
                 ]
             ],
             [
                 "chop",
                 [
-                    "marinated chicken",
+                    "bacon",
                     "beef",
-                    "bacon"
+                    "marinated chicken"
                 ]
             ],
             [
@@ -2314,18 +2791,30 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
-                    "marinated chicken",
+                    "bacon",
                     "beef",
-                    "bacon"
+                    "marinated chicken"
                 ]
+            ],
+            [
+                "add_fish",
+                []
             ],
             [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -2347,6 +2836,12 @@
                 "extend",
                 [
                     "gluten free"
+                ]
+            ],
+            [
+                "precook",
+                [
+                    "bacon"
                 ]
             ],
             [
@@ -2381,10 +2876,18 @@
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -2407,6 +2910,14 @@
                 ]
             ],
             [
+                "precook",
+                []
+            ],
+            [
+                "chop",
+                []
+            ],
+            [
                 "spread",
                 [
                     "tomato and oregano"
@@ -2419,10 +2930,26 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
+                "add_meat",
+                []
+            ],
+            [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     },
@@ -2446,6 +2973,10 @@
                 ]
             ],
             [
+                "precook",
+                []
+            ],
+            [
                 "chop",
                 [
                     "pepperoni"
@@ -2464,16 +2995,28 @@
                 ]
             ],
             [
+                "add_vegetable",
+                []
+            ],
+            [
                 "add_meat",
                 [
                     "pepperoni"
                 ]
             ],
             [
+                "add_fish",
+                []
+            ],
+            [
                 "bake",
                 [
                     "pizza"
                 ]
+            ],
+            [
+                "add_after_bake",
+                []
             ]
         ]
     }
