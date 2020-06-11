@@ -8,6 +8,9 @@ DOUGH_WEIGHT = 0.15
 SAUCE_WEIGHT = 0.15
 TOPPING_WEIGHT = 0.7
 
+INSERTION_WEIGHT = 0.67
+DELETION_WEIGHT = 0.33
+
 
 def retrieve(case_base, constraints, k=3):
     k = min(k, len(case_base))
@@ -36,15 +39,28 @@ def dough_distance(source, target):
     return int(source != target)
 
 
+# Option 1. We ask for exactly same sauces than query
 def sauce_distance(source, target):
     # Jaccard distance
-    union = source + target
-    intersection = [sauce for sauce in union if sauce in source and sauce in target]
+    intersection = set(source).intersection(set(target))
+    union = set(source).union(set(target))
     return 1 - len(intersection) / len(union)
 
 
+# Option 2. We ask for at least sauces in query
+def sauce_distance_2(source, target):
+    # Intersection over cardinality of target
+    intersection = set(source).intersection(set(target))
+    return 1 - len(intersection) / len(set(target))
+
+
 def topping_distance(source, target_must, target_must_not):
-    return 0
+    # Edit distance with insertion and deletion
+    insertions = len(set(target_must) - set(source))
+    normalized_insertions = insertions / len(set(target_must))
+    deletions = len(set(target_must_not).intersection(set(source)))
+    normalized_deletions = deletions / len(set(target_must_not))
+    return INSERTION_WEIGHT*normalized_insertions + DELETION_WEIGHT*normalized_deletions
 
 
 if __name__ == '__main__':
@@ -55,7 +71,7 @@ if __name__ == '__main__':
 
     case_base = [Pizza(pizza['dough'], pizza['sauce'], pizza['toppings'], pizza['recipe'], pizza['name']) for pizza in pizzas]
 
-    constraints = {'dough': 'classic', 'sauce': ['barbecue'], 'toppings_must': ['bacon', 'york'], 'toppings_must_not': ['onions']}
+    constraints = {'dough': 'classic', 'sauce': ['tomato'], 'toppings_must': ['mushroom', 'york', 'black olives'], 'toppings_must_not': ['onion']}
 
     result = retrieve(case_base, constraints, k=5)
     for r in result:
