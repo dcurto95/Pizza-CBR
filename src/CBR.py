@@ -40,7 +40,7 @@ def sauce_distance(source, target):
     # Jaccard distance
     union = source + target
     intersection = [sauce for sauce in union if sauce in source and sauce in target]
-    return len(intersection) / len(union)
+    return 1 - len(intersection) / len(union)
 
 
 def topping_distance(source, target_must, target_must_not):
@@ -55,7 +55,7 @@ if __name__ == '__main__':
 
     case_base = [Pizza(pizza['dough'], pizza['sauce'], pizza['toppings'], pizza['recipe'], pizza['name']) for pizza in pizzas]
 
-    constraints = {'dough': 'classic', 'sauce': ['barbacue'], 'toppings_must': ['bacon', 'york'], 'toppings_must_not': ['onions']}
+    constraints = {'dough': 'classic', 'sauce': ['barbecue'], 'toppings_must': ['bacon', 'york'], 'toppings_must_not': ['onions']}
 
     result = retrieve(case_base, constraints, k=5)
     for r in result:
