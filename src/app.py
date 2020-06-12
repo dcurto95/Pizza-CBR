@@ -16,6 +16,7 @@ class App(Tk):
 
         self.header_font = 'Helvetica 12 bold'
         self.frames = {}
+        self.recommended_pizza = {}
 
         for F in (StartPage, RecipePage):
             frame = F(container, self)
@@ -44,8 +45,7 @@ class App(Tk):
         constraints = {'dough': dough_selected, 'sauce': sauces_selected, 'toppings_must': toppings_selected,
                        'toppings_must_not': toppings_discarded}
 
-        pizza = CBR.get_adapted_pizza(constraints)
-
+        self.recommended_pizza = CBR.get_adapted_pizza(constraints)
         self.show_frame(RecipePage)
 
 
@@ -155,6 +155,9 @@ class StartPage(Frame):
 class RecipePage(Frame):
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
+
+
+        pizza = controller.recommended_pizza
 
         back_btn = Button(self, text="Go Back", command=lambda: controller.show_frame(StartPage))
         back_btn.pack(anchor="w")

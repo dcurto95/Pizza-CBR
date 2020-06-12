@@ -101,8 +101,8 @@ def adapt(constraints, closest_pizza):
 
     add_tasks_index = [task_tuple[0] not in actions for task_tuple in insert_tasks]
 
-    add_tasks = insert_tasks[add_tasks_index] if add_tasks_index else []
-    insert_tasks = insert_tasks[~np.asarray(add_tasks_index)] if add_tasks_index else []
+    add_tasks = insert_tasks[add_tasks_index] if add_tasks_index else np.array([])
+    insert_tasks = insert_tasks[~np.asarray(add_tasks_index)] if add_tasks_index else np.array([])
 
     new_recipe = update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, new_ingredients, new_recipe,
                                              substitute_tasks, topping_deletions)
