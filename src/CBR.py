@@ -15,7 +15,7 @@ INSERTION_WEIGHT = 0.67
 DELETION_WEIGHT = 0.33
 
 THRESHOLD_INSERTION = 0.4
-MAX_CBY = 40 #MAX ELEMENTS CASE BASE LIBRARY
+MAX_CBY = 40  # MAX ELEMENTS CASE BASE LIBRARY
 
 
 def retrieve(case_base, constraints, k=3):
@@ -48,7 +48,7 @@ def pizza_distance_class(pizza, constraints):
         d_sauce = 1
     d_toppings = topping_distance_class(pizza.toppings, constraints.toppings)
 
-    return DOUGH_WEIGHT*d_dough + SAUCE_WEIGHT*d_sauce + TOPPING_WEIGHT*d_toppings
+    return DOUGH_WEIGHT * d_dough + SAUCE_WEIGHT * d_sauce + TOPPING_WEIGHT * d_toppings
 
 
 def dough_distance(source, target):
@@ -170,7 +170,7 @@ def delete_topping(new_recipe, topping_deletions):
     return new_recipe
 
 
-#TODO: hi ha un altre Jaccard distance (sauce_distance), ho podriem ajuntar?
+# TODO: hi ha un altre Jaccard distance (sauce_distance), ho podriem ajuntar?
 def topping_distance_class(source, target):
     # Jaccard distance
     intersection = set(source).intersection(set(target))
@@ -199,7 +199,7 @@ def retain(case_base, suggested_solution, distance):
     while len(case_base) > MAX_CBY:
         case_base, deletions = forget(case_base)
         deletions_list.append(deletions)
-    #TODO: write json
+    # TODO: write json
     return insertion, deletions_list
 
 
@@ -221,7 +221,7 @@ def forget(case_base):
 
     num_case_base = len(case_base)
     for j in range(2, num_case_base):
-        #TODO: in case len(dist_list) > 2
+        # TODO: in case len(dist_list) > 2
         if dist_list[0][1][j] < dist_list[1][1][j]:
             deletions = case_base[dist_list[0][0]]
             del case_base[dist_list[0][0]]
@@ -232,7 +232,6 @@ def forget(case_base):
             break
 
     return case_base, deletions
-
 
 
 if __name__ == '__main__':
@@ -253,6 +252,7 @@ if __name__ == '__main__':
 
     closest_case = result[0]
     if closest_case[1] > 0:
+        # ADAPT
         adapted_pizza = adapt(constraints, closest_case[0])
         print("Adapted pizza:", adapted_pizza)
     for r in result:
@@ -261,8 +261,7 @@ if __name__ == '__main__':
     # REUSE
 
     # REVISE
-    distance = revise(case_base, constraints)    #TODO: constraints must be changed by REUSE result
+    distance = revise(case_base, constraints)  # TODO: constraints must be changed by REUSE result
 
     # RETAIN
-    insertion, deletions = retain(case_base, constraints, distance)    #TODO: constraints must be changed by REUSE result
-
+    insertion, deletions = retain(case_base, constraints, distance)  # TODO: constraints must be changed by REUSE result
