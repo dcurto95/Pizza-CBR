@@ -3,7 +3,7 @@ from tkinter import ttk, messagebox
 
 from CBR import retrieve
 from pizza_knowledge_base import KnowledgeBase
-from src import utils
+from src import utils, CBR
 
 class App(Tk):
     def __init__(self, *args, **kwargs):
@@ -43,8 +43,9 @@ class App(Tk):
 
         constraints = {'dough': dough_selected, 'sauce': sauces_selected, 'toppings_must': toppings_selected,
                        'toppings_must_not': toppings_discarded}
-        casebase = utils.load_case_base()
-        result = retrieve(casebase, constraints, k=5)
+
+        pizza = CBR.get_adapted_pizza(constraints)
+
         self.show_frame(RecipePage)
 
 

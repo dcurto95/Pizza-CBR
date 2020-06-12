@@ -6,6 +6,7 @@
 import numpy as np
 
 from pizza_knowledge_base import get_recipe_from_toppings, KnowledgeBase, group_toppings, get_toppings_in_same_group
+import utils
 
 DOUGH_WEIGHT = 0.15
 SAUCE_WEIGHT = 0.15
@@ -232,6 +233,18 @@ def forget(case_base):
             break
 
     return case_base, deletions
+
+def get_adapted_pizza(constraints):
+    casebase = utils.load_case_base()
+    result = retrieve(casebase, constraints, k=5)
+    closest_case = result[0]
+    if closest_case[1] > 0:
+        # ADAPT
+        adapted_pizza = adapt(constraints, closest_case[0])
+        return adapted_pizza
+    else:
+        return closest_case[0]
+
 
 
 if __name__ == '__main__':
