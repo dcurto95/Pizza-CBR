@@ -3,6 +3,9 @@
 # 'sauce': [s1, s2, ...],
 # 'toppings_must': [t1, t2, ...],
 # 'toppings_must_not': [t1, t2, ...]}
+import numpy as np
+
+from pizza_knowledge_base import get_recipe_from_toppings, KnowledgeBase, group_toppings, get_toppings_in_same_group
 
 DOUGH_WEIGHT = 0.15
 SAUCE_WEIGHT = 0.15
@@ -31,7 +34,7 @@ def pizza_distance(pizza, constraints):
     d_sauce = sauce_distance(pizza.sauce, constraints['sauce'])
     d_toppings = topping_distance(pizza.toppings, constraints['toppings_must'], constraints['toppings_must_not'])
 
-    return DOUGH_WEIGHT*d_dough + SAUCE_WEIGHT*d_sauce + TOPPING_WEIGHT*d_toppings
+    return DOUGH_WEIGHT * d_dough + SAUCE_WEIGHT * d_sauce + TOPPING_WEIGHT * d_toppings
 
 
 def dough_distance(source, target):
@@ -60,19 +63,117 @@ def topping_distance(source, target_must, target_must_not):
     normalized_insertions = insertions / len(set(target_must))
     deletions = len(set(target_must_not).intersection(set(source)))
     normalized_deletions = deletions / len(set(target_must_not))
-    return INSERTION_WEIGHT*normalized_insertions + DELETION_WEIGHT*normalized_deletions
+    return INSERTION_WEIGHT * normalized_insertions + DELETION_WEIGHT * normalized_deletions
+
+
+def adapt(constraints, closest_pizza):
+    new_recipe = np.array(closest_pizza.recipe, copy=True)
+    actions = new_recipe[:, 0]
+
+    closest_pizza.set_recipe()  # To create new references
+    new_ingredients = closest_pizza.toppings.copy()
+
+    topping_deletions, topping_insertions, topping_substitutions = get_delete_insert_substitute_toppings(closest_pizza,
+                                                                                                         constraints)
+
+    new_ingredients.extend(topping_insertions)
+    new_ingredients = np.asarray(new_ingredients)
+
+    insert_tasks = np.asarray(get_recipe_from_toppings('', [], topping_insertions))
+    insert_tasks = insert_tasks[(insert_tasks[:, 0] != 'bake') & (insert_tasks[:, 0] != 'extend')]
+    substitute_tasks = np.asarray(get_recipe_from_toppings('', [], topping_substitutions))
+    substitute_tasks = substitute_tasks[(substitute_tasks[:, 0] != 'bake') & (substitute_tasks[:, 0] != 'extend')]
+
+    add_tasks_index = [task_tuple[0] not in actions for task_tuple in insert_tasks]
+
+    add_tasks = insert_tasks[add_tasks_index]
+    insert_tasks = insert_tasks[~np.asarray(add_tasks_index)]
+
+    new_recipe = update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, new_ingredients, new_recipe,
+                                             substitute_tasks, topping_deletions)
+
+    return Pizza(constraints['dough'], constraints['sauce'], new_ingredients, new_recipe)
+
+
+def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, new_ingredients, baseline_recipe,
+                                substitute_tasks, topping_deletions):
+    # Dough and sauce always changed
+    baseline_recipe[0][1] = constraints['dough']
+    baseline_recipe[actions == 'spread'][0][1] = constraints['sauce']
+    # Add new tasks
+    baseline_recipe = np.append(baseline_recipe, add_tasks, axis=0)
+    for task_tuple in baseline_recipe:
+        substitute_topping(constraints, new_ingredients, substitute_tasks, task_tuple)
+        insert_topping(insert_tasks, task_tuple)
+    # Delete toppings
+    if topping_deletions:
+        baseline_recipe = delete_topping(baseline_recipe, topping_deletions)
+    baseline_recipe = [tuple for x in KnowledgeBase.default_recipe_task_order for tuple in baseline_recipe if
+                       tuple[0] == x]
+    return baseline_recipe
+
+
+def get_delete_insert_substitute_toppings(closest_pizza, constraints):
+    new_toppings = set(constraints['toppings_must']) - set(closest_pizza.toppings)
+    new_toppings_group = group_toppings(list(new_toppings))
+    closest_toppings_group = group_toppings(closest_pizza.toppings)
+    topping_deletions = list(set(constraints['toppings_must_not']).intersection(set(closest_pizza.toppings)))
+    topping_insertions, topping_substitutions = get_toppings_in_same_group(new_toppings_group,
+                                                                           closest_toppings_group,
+                                                                           constraints['toppings_must'])
+    return topping_deletions, topping_insertions, topping_substitutions
+
+
+def substitute_topping(constraints, new_ingredients, substitute_tasks, task_tuple):
+    # Substitute toppings
+    substitution_index = task_tuple[0] == substitute_tasks[:, 0]
+    if any(substitution_index):
+        topping_replacements = substitute_tasks[substitution_index][0][1]
+        topping_index = [topping not in constraints['toppings_must'] for topping in task_tuple[1]]
+        topping_index = np.where(topping_index)[0]
+        for index, replacement in zip(topping_index, topping_replacements):
+            new_ingredients[new_ingredients == task_tuple[1][index]] = replacement
+            task_tuple[1][index] = replacement
+
+
+def insert_topping(insert_tasks, task_tuple):
+    # Insert toppings
+    insert_index = task_tuple[0] == insert_tasks[:, 0]
+    if any(insert_index):
+        task_tuple[1].extend(insert_tasks[insert_index][0][1])
+
+
+def delete_topping(new_recipe, topping_deletions):
+    topping_deletions = set(topping_deletions)
+    for i, task_tuple in enumerate(new_recipe):
+        found_toppings = topping_deletions.intersection(set(task_tuple[1]))
+
+        if found_toppings:
+            if len(task_tuple[1]) == len(found_toppings):
+                new_recipe = np.delete(new_recipe, i, 0)
+            else:
+                task_tuple[1] = [topping for topping in task_tuple[1] if topping not in found_toppings]
+    return new_recipe
 
 
 if __name__ == '__main__':
     import json
     from pizza import Pizza
+
     with open('../data/pizzas.json', 'r', encoding='utf-8') as f:
         pizzas = json.load(f)
 
-    case_base = [Pizza(pizza['dough'], pizza['sauce'], pizza['toppings'], pizza['recipe'], pizza['name']) for pizza in pizzas]
+    case_base = [Pizza(pizza['dough'], pizza['sauce'], pizza['toppings'], pizza['recipe'], pizza['name']) for pizza in
+                 pizzas]
 
-    constraints = {'dough': 'classic', 'sauce': ['tomato'], 'toppings_must': ['mushroom', 'york', 'black olives'], 'toppings_must_not': ['onion']}
+    constraints = {'dough': 'classic', 'sauce': ['tomato'], 'toppings_must': ['mushroom', 'york', 'black olives'],
+                   'toppings_must_not': ['onion']}
 
     result = retrieve(case_base, constraints, k=5)
+
+    closest_case = result[0]
+    if closest_case[1] > 0:
+        adapted_pizza = adapt(constraints, closest_case[0])
+        print("Adapted pizza:", adapted_pizza)
     for r in result:
         print(r)

@@ -7,19 +7,23 @@ class KnowledgeBase:
     meat = ('sausage', 'marinated chicken', 'york', 'beef', 'pepperoni', 'new orleans pork',
             'quarter pounder', 'bacon crispy', 'bacon', 'chicken pops', 'pulled pork', 'pepperoni', 'mini burger')
     fish = ('tuna', 'prawn', 'anchovy')
-    cheese = ('goat cheese', 'cheddar cheese', 'provolone cheese', '5 gourmet cheeses', 'mix 4 cheeses', 'cured swiss cheese',
-              'mozzarella topping', 'cheddar cheese cream')
+    cheese = (
+        'goat cheese', 'cheddar cheese', 'provolone cheese', '5 gourmet cheeses', 'mix 4 cheeses', 'cured swiss cheese',
+        'mozzarella topping', 'cheddar cheese cream')
     dough = ('thin', 'classic', 'quadroller', '3 floors', 'garlic cheese filled border', 'gluten free')
     after_bake = ('nachos after baking and cut', 'pineapple', 'oregano', 'jamon iberico',
                   'cesar dressing', 'olive oil', 'fresh parmesan cheese')
     vegetable = ('fresh tomato', 'caramelized onion', 'rocket', 'extra candied tomatoe', 'onion', 'green pepper',
                  'roasted pepper', 'black olives', 'mushroom', 'bell pepper')
     # All ingredients in precook must already be in another set
-    precook = ('caramelized onion', 'roasted pepper', 'marinated chicken', 'beef', 'new orleans pork', 'quarter pounder',
-               'bacon crispy', 'chicken pops', 'pulled pork', 'mini burger')
+    precook = (
+        'caramelized onion', 'roasted pepper', 'marinated chicken', 'beef', 'new orleans pork', 'quarter pounder',
+        'bacon crispy', 'chicken pops', 'pulled pork', 'mini burger')
 
     # cooking_groups = {'sauce': sauce, 'meat': meat, 'fish': fish, 'vegetable': vegetable, 'precook': precook, 'dough': dough, 'after_bake': after_bake, 'cheese': cheese}
-    default_recipe_task_order = ('extend', 'precook', 'chop', 'spread', 'scatter', 'add_vegetable', 'add_meat', 'add_fish', 'bake', 'add_after_bake')
+    default_recipe_task_order = (
+        'extend', 'precook', 'chop', 'spread', 'scatter', 'add_vegetable', 'add_meat', 'add_fish', 'bake',
+        'add_after_bake')
 
 
 # def group_ingredients(ingredients):
@@ -101,7 +105,8 @@ def get_recipe_from_toppings(dough, sauces, toppings):
         recipe.append(('precook', grouped_toppings['precook']))
     if len(chop_ingredients) != 0:
         recipe.append(('chop', chop_ingredients))
-    recipe.append(('spread', sauces))
+    if sauces:
+        recipe.append(('spread', sauces))
     if 'cheese' in grouped_toppings:
         recipe.append(('scatter', grouped_toppings['cheese']))
     if 'vegetable' in grouped_toppings:
@@ -115,3 +120,15 @@ def get_recipe_from_toppings(dough, sauces, toppings):
         recipe.append(('add_after_bake', grouped_toppings['after_bake']))
 
     return recipe
+
+
+def get_toppings_in_same_group(first_group, second_group, must_have_toppings):
+    different_groups = []
+    matching_groups = []
+
+    for key, value in first_group.items():
+        if key not in second_group or set(second_group[key]).issubset(must_have_toppings):
+            different_groups.extend(value)
+        else:
+            matching_groups.extend(value)
+    return different_groups, matching_groups
