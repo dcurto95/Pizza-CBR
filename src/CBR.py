@@ -4,7 +4,7 @@
 # 'toppings_must': [t1, t2, ...],
 # 'toppings_must_not': [t1, t2, ...]}
 import numpy as np
-
+from pizza import Pizza
 from pizza_knowledge_base import get_recipe_from_toppings, KnowledgeBase, group_toppings, get_toppings_in_same_group
 import utils
 

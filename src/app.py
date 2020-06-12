@@ -47,6 +47,7 @@ class App(Tk):
 
         self.recommended_pizza = CBR.get_adapted_pizza(constraints)
         self.show_frame(RecipePage)
+        self.frames[RecipePage].update_view(self.recommended_pizza)
 
 
 
@@ -142,13 +143,11 @@ class StartPage(Frame):
         dough_dropdown.grid(row=3, columnspan=2, pady=10)
 
 
-        #Button generate recipte
+        #Button generate recipe
         add_btn = Button(self, text="Generate recipe", command=lambda: controller.generate_recipe(ingredient_listbox, ingredient_discarded_listbox, dough_dropdown, vars, toppings))
         add_btn.grid(row=4, columnspan=2, ipadx=5, ipady=5, pady=20)
 
-        #
-        # page_one = Button(self, text="Page One", command=lambda: controller.show_frame(PageOne))
-        # page_one.grid()
+
 
 
 
@@ -156,23 +155,60 @@ class RecipePage(Frame):
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
 
+        recipe_frame = Frame(self)
+        recipe_label = Label(recipe_frame, text="Recipe", font=controller.header_font)
+        recipe_label.grid(row=0, column=0, ipadx=10, ipady=10)
 
-        pizza = controller.recommended_pizza
+        ingredients_label = Label(recipe_frame, text="Ingredients", font=controller.header_font)
+        ingredients_label.grid(row=0, column=0, ipadx=10, ipady=10)
+
+
+        self.text_dough = StringVar()
+        self.text_sauces = StringVar()
+        self.text_toppings = StringVar()
+        self.steps = StringVar()
+
+        dough_label = Label(recipe_frame, text="Dough", font=controller.header_font)
+        dough_label.grid(row=1, column=0, ipadx=10, ipady=10)
+
+        pizza_dough = Label(recipe_frame, textvariable=self.text_dough)
+        pizza_dough.grid(row=2, column=0)
+
+        sauce_label = Label(recipe_frame, text="Sauces", font=controller.header_font)
+        sauce_label.grid(row=3, column=0, ipadx=10, ipady=10)
+
+        pizza_sauce = Label(recipe_frame, textvariable=self.text_sauces)
+        pizza_sauce.grid(row=4, column=0)
+
+        toppings_label = Label(recipe_frame, text="Toppings", font=controller.header_font)
+        toppings_label.grid(row=5, column=0, ipadx=10, ipady=10)
+
+        pizza_toppings = Label(recipe_frame, textvariable=self.text_toppings)
+        pizza_toppings.grid(row=6, column=0)
+
+        steps_label = Label(recipe_frame, text="Preparation", font=controller.header_font)
+        steps_label.grid(row=7, column=0, ipadx=10, ipady=10)
+
+        pizza_steps = Label(recipe_frame, textvariable=self.steps) #, font=controller.header_font)
+        pizza_steps.grid(row=8, column=0, ipadx=10, ipady=10)
 
         back_btn = Button(self, text="Go Back", command=lambda: controller.show_frame(StartPage))
         back_btn.pack(anchor="w")
-
-        recipe_frame = Frame(self)
-        ingredient_label = Label(recipe_frame, text="Ingredients", font=controller.header_font)
-        ingredient_label.grid(row=0, column=0, ipadx=10, ipady=10)
-
-        ingredient_label = Label(recipe_frame, text="Step by step", font=controller.header_font)
-        ingredient_label.grid(row=2, column=0, ipadx=10, ipady=10)
-
         recipe_frame.pack()
 
+    def update_view(self, pizza):
+        self.text_dough.set(pizza.dough)
+        self.text_sauces.set(('\n').join(pizza.sauce))
+        self.text_toppings.set(('\n').join(pizza.toppings))
+        steps = []
+        for i, step in enumerate(pizza.recipe):
+            step_str = str(i+1) +". "+ step[0] + " "
+            if isinstance(step[1], str):
+                step_str = step_str + step[1]
+            else:
+                step_str = step_str + (', ').join(step[1])
 
-def on_closing():
-    #TODO: Aqui anira la funcio d'abans de tancar
-    if messagebox.askokcancel("Quit", "Do you want to quit?"):
-        app.destroy()
+            steps.append(step_str)
+        self.steps.set(('\n').join(steps))
+
+

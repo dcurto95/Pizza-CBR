@@ -16,3 +16,7 @@ def get_toppings():
         value = getattr(KnowledgeBase, topping)
         toppings.extend(value)
     return toppings
+
+def get_steps(pizza):
+    steps = []
+
