@@ -5,7 +5,8 @@
 # 'toppings_must_not': [t1, t2, ...]}
 import numpy as np
 from pizza import Pizza
-from pizza_knowledge_base import get_recipe_from_toppings, KnowledgeBase, group_toppings, get_toppings_in_same_group
+from pizza_knowledge_base import get_recipe_from_toppings, KnowledgeBase, group_toppings, get_toppings_in_same_group, \
+    get_pretty_print
 import utils
 
 DOUGH_WEIGHT = 0.15
@@ -236,6 +237,7 @@ def forget(case_base):
 
     return case_base, deletions
 
+
 def get_adapted_pizza(constraints):
     casebase = utils.load_case_base()
     result = retrieve(casebase, constraints, k=5)
@@ -246,7 +248,6 @@ def get_adapted_pizza(constraints):
         return adapted_pizza
     else:
         return closest_case[0]
-
 
 
 if __name__ == '__main__':
@@ -270,6 +271,7 @@ if __name__ == '__main__':
         # ADAPT
         adapted_pizza = adapt(constraints, closest_case[0])
         print("Adapted pizza:", adapted_pizza)
+        print(f"Recipe:\n{get_pretty_print(adapted_pizza.recipe)}\n")
     for r in result:
         print(r)
 
