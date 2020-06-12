@@ -12,7 +12,7 @@ INSERTION_WEIGHT = 0.67
 DELETION_WEIGHT = 0.33
 
 THRESHOLD_INSERTION = 0.4
-MAX_CBY = 39 #MAX ELEMENTS CASE BASE LIBRARY
+MAX_CBY = 40 #MAX ELEMENTS CASE BASE LIBRARY
 
 
 def retrieve(case_base, constraints, k=3):
@@ -163,6 +163,5 @@ if __name__ == '__main__':
     distance = revise(case_base, constraints)    #TODO: constraints must be changed by REUSE result
 
     # RETAIN
-    retain(case_base, constraints, distance)    #TODO: constraints must be changed by REUSE result
-    #insertion, deletions = retain(case_base, constraints, distance)    #TODO: constraints must be changed by REUSE result
+    insertion, deletions = retain(case_base, constraints, distance)    #TODO: constraints must be changed by REUSE result
 
