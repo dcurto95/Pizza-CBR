@@ -101,8 +101,8 @@ def adapt(constraints, closest_pizza):
 
     add_tasks_index = [task_tuple[0] not in actions for task_tuple in insert_tasks]
 
-    add_tasks = insert_tasks[add_tasks_index]
-    insert_tasks = insert_tasks[~np.asarray(add_tasks_index)]
+    add_tasks = insert_tasks[add_tasks_index] if add_tasks_index else []
+    insert_tasks = insert_tasks[~np.asarray(add_tasks_index)] if add_tasks_index else []
 
     new_recipe = update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, new_ingredients, new_recipe,
                                              substitute_tasks, topping_deletions)
@@ -116,7 +116,8 @@ def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, n
     baseline_recipe[0][1] = constraints['dough']
     baseline_recipe[actions == 'spread'][0][1] = constraints['sauce']
     # Add new tasks
-    baseline_recipe = np.append(baseline_recipe, add_tasks, axis=0)
+    if add_tasks.size > 0:
+        baseline_recipe = np.append(baseline_recipe, add_tasks, axis=0)
     for task_tuple in baseline_recipe:
         substitute_topping(constraints, new_ingredients, substitute_tasks, task_tuple)
         insert_topping(insert_tasks, task_tuple)
@@ -153,9 +154,10 @@ def substitute_topping(constraints, new_ingredients, substitute_tasks, task_tupl
 
 def insert_topping(insert_tasks, task_tuple):
     # Insert toppings
-    insert_index = task_tuple[0] == insert_tasks[:, 0]
-    if any(insert_index):
-        task_tuple[1].extend(insert_tasks[insert_index][0][1])
+    if insert_tasks.size > 0:
+        insert_index = task_tuple[0] == insert_tasks[:, 0]
+        if any(insert_index):
+            task_tuple[1].extend(insert_tasks[insert_index][0][1])
 
 
 def delete_topping(new_recipe, topping_deletions):
