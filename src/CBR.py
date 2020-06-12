@@ -115,7 +115,7 @@ def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, n
     baseline_recipe[0][1] = constraints['dough']
     baseline_recipe[actions == 'spread'][0][1] = constraints['sauce']
     # Add new tasks
-    if add_tasks:
+    if add_tasks.size > 0:
         baseline_recipe = np.append(baseline_recipe, add_tasks, axis=0)
     for task_tuple in baseline_recipe:
         substitute_topping(constraints, new_ingredients, substitute_tasks, task_tuple)
@@ -153,9 +153,10 @@ def substitute_topping(constraints, new_ingredients, substitute_tasks, task_tupl
 
 def insert_topping(insert_tasks, task_tuple):
     # Insert toppings
-    insert_index = task_tuple[0] == insert_tasks[:, 0] if insert_tasks else []
-    if any(insert_index):
-        task_tuple[1].extend(insert_tasks[insert_index][0][1])
+    if insert_tasks.size > 0:
+        insert_index = task_tuple[0] == insert_tasks[:, 0]
+        if any(insert_index):
+            task_tuple[1].extend(insert_tasks[insert_index][0][1])
 
 
 def delete_topping(new_recipe, topping_deletions):
