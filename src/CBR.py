@@ -184,13 +184,10 @@ def topping_distance_general(source, target):
     return 1 - len(intersection) / (len(union) + 10**-10)
 
 
-def revise(closest_case, suggested_solution):
-    # Calculate distances
-    return pizza_distance_class(closest_case, suggested_solution)
-
-
-def retain(case_base, suggested_solution, distance):
+def retain(case_base, suggested_solution, closest_case):
     insertion = None
+    # Calculate distances
+    distance = pizza_distance_class(closest_case, suggested_solution)
     if distance > THRESHOLD_INSERTION:
         case_base.append(suggested_solution)
         insertion = suggested_solution
@@ -274,8 +271,7 @@ if __name__ == '__main__':
     for r in result:
         print(r)
 
-    # REVISE
-    distance = revise(closest_case[0], adapted_pizza)
+    # REVISE - no
 
     # RETAIN
-    insertion, deletions = retain(case_base, adapted_pizza, distance)
+    insertion, deletions = retain(case_base, adapted_pizza, closest_case[0])
