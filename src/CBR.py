@@ -4,9 +4,11 @@
 # 'toppings_must': [t1, t2, ...],
 # 'toppings_must_not': [t1, t2, ...]}
 import numpy as np
-from pizza import Pizza
-from pizza_knowledge_base import get_recipe_from_toppings, KnowledgeBase, group_toppings, get_toppings_in_same_group
+
 import utils
+from pizza import Pizza
+from pizza_knowledge_base import get_recipe_from_toppings, KnowledgeBase, group_toppings, get_toppings_in_same_group, \
+    get_pretty_print
 
 DOUGH_WEIGHT = 0.15
 SAUCE_WEIGHT = 0.15
@@ -62,7 +64,7 @@ def sauce_distance(source, target):
     # Jaccard distance
     intersection = set(source).intersection(set(target))
     union = set(source).union(set(target))
-    return 1 - len(intersection) / (len(union) + 1**-10)
+    return 1 - len(intersection) / (len(union) + 10**-10)
 
 
 # Option 2. We ask for at least sauces in query
@@ -77,7 +79,7 @@ def topping_distance(source, target_must, target_must_not):
     insertions = len(set(target_must) - set(source))
     normalized_insertions = insertions / len(set(target_must))
     deletions = len(set(target_must_not).intersection(set(source)))
-    normalized_deletions = deletions / (len(set(target_must_not)) + 1**-10)
+    normalized_deletions = deletions / (len(set(target_must_not)) + 10**-10)
     return INSERTION_WEIGHT * normalized_insertions + DELETION_WEIGHT * normalized_deletions
 
 
@@ -104,8 +106,9 @@ def adapt(constraints, closest_pizza):
     add_tasks = insert_tasks[add_tasks_index] if add_tasks_index else np.array([])
     insert_tasks = insert_tasks[~np.asarray(add_tasks_index)] if add_tasks_index else np.array([])
 
-    new_recipe = update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, new_ingredients, new_recipe,
-                                             substitute_tasks, topping_deletions)
+    new_recipe, new_ingredients = update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks,
+                                                              new_ingredients, new_recipe,
+                                                              substitute_tasks, topping_deletions)
 
     return Pizza(constraints['dough'], constraints['sauce'], new_ingredients, new_recipe)
 
@@ -114,7 +117,9 @@ def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, n
                                 substitute_tasks, topping_deletions):
     # Dough and sauce always changed
     baseline_recipe[0][1] = constraints['dough']
-    baseline_recipe[actions == 'spread'][0][1] = constraints['sauce']
+    sauce_index = actions == 'spread'
+    sauce_index = np.argmax(sauce_index)
+    baseline_recipe[sauce_index][1] = constraints['sauce']
     # Add new tasks
     if add_tasks.size > 0:
         baseline_recipe = np.append(baseline_recipe, add_tasks, axis=0)
@@ -124,9 +129,10 @@ def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, n
     # Delete toppings
     if topping_deletions:
         baseline_recipe = delete_topping(baseline_recipe, topping_deletions)
+        new_ingredients = [topping for topping in new_ingredients if topping not in topping_deletions]
     baseline_recipe = [tuple for x in KnowledgeBase.default_recipe_task_order for tuple in baseline_recipe if
                        tuple[0] == x]
-    return baseline_recipe
+    return baseline_recipe, new_ingredients
 
 
 def get_delete_insert_substitute_toppings(closest_pizza, constraints):
@@ -236,6 +242,7 @@ def forget(case_base):
 
     return case_base, deletions
 
+
 def get_adapted_pizza(constraints, case_base):
     result = retrieve(case_base, constraints, k=5)
     closest_case = result[0]
@@ -245,7 +252,6 @@ def get_adapted_pizza(constraints, case_base):
         return adapted_pizza
     else:
         return closest_case[0]
-
 
 
 if __name__ == '__main__':
@@ -269,6 +275,7 @@ if __name__ == '__main__':
         # ADAPT
         adapted_pizza = adapt(constraints, closest_case[0])
         print("Adapted pizza:", adapted_pizza)
+        print(f"Recipe:\n{get_pretty_print(adapted_pizza.recipe)}\n")
     for r in result:
         print(r)
 

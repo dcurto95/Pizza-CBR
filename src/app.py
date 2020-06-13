@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk, messagebox
 
 from CBR import retrieve
-from pizza_knowledge_base import KnowledgeBase
+from pizza_knowledge_base import KnowledgeBase, get_pretty_print
 from src import utils, CBR
 
 class App(Tk):
@@ -218,15 +218,6 @@ class RecipePage(Frame):
         self.text_dough.set(pizza.dough)
         self.text_sauces.set(('\n').join(pizza.sauce))
         self.text_toppings.set(('\n').join(pizza.toppings))
-        steps = []
-        for i, step in enumerate(pizza.recipe):
-            step_str = str(i+1) +". "+ step[0] + " "
-            if isinstance(step[1], str):
-                step_str = step_str + step[1]
-            else:
-                step_str = step_str + (', ').join(step[1])
-
-            steps.append(step_str)
-        self.steps.set(('\n').join(steps))
+        self.steps.set(get_pretty_print(pizza.recipe))
 
 
