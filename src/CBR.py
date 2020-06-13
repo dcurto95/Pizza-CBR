@@ -110,7 +110,7 @@ def adapt(constraints, closest_pizza):
                                                               new_ingredients, new_recipe,
                                                               substitute_tasks, topping_deletions)
 
-    return Pizza(constraints['dough'], constraints['sauce'], new_ingredients, new_recipe)
+    return Pizza(constraints['dough'], constraints['sauce'], new_ingredients.tolist(), new_recipe)
 
 
 def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, new_ingredients, baseline_recipe,
@@ -130,7 +130,7 @@ def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, n
     if topping_deletions:
         baseline_recipe = delete_topping(baseline_recipe, topping_deletions)
         new_ingredients = [topping for topping in new_ingredients if topping not in topping_deletions]
-    baseline_recipe = [tuple for x in KnowledgeBase.default_recipe_task_order for tuple in baseline_recipe if
+    baseline_recipe = [tuple.tolist() for x in KnowledgeBase.default_recipe_task_order for tuple in baseline_recipe if
                        tuple[0] == x]
     return baseline_recipe, new_ingredients
 
@@ -264,7 +264,7 @@ if __name__ == '__main__':
     case_base = [Pizza(pizza['dough'], pizza['sauce'], pizza['toppings'], pizza['recipe'], pizza['name']) for pizza in
                  pizzas]
 
-    constraints = {'dough': 'classic', 'sauce': ['tomato'], 'toppings_must': ['mushroom', 'york', 'black olives'],
+    constraints = {'dough': 'thin', 'sauce': ['tomato'], 'toppings_must': ['mushroom', 'york', 'black olives','shrimp', 'tuna', 'anchovy'],
                    'toppings_must_not': ['onion']}
 
     # RETRIEVE
