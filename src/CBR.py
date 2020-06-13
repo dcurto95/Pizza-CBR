@@ -19,7 +19,7 @@ INSERTION_WEIGHT = 0.67
 DELETION_WEIGHT = 0.33
 
 THRESHOLD_INSERTION = 0.4
-MAX_CBY = 20  # MAX ELEMENTS CASE BASE LIBRARY
+MAX_CBY = 40  # MAX ELEMENTS CASE BASE LIBRARY
 
 
 def retrieve(case_base, constraints, k=3):
@@ -38,7 +38,10 @@ def retrieve(case_base, constraints, k=3):
 
 def pizza_distance(pizza, constraints):
     d_dough = dough_distance(pizza.dough, constraints['dough'])
-    d_sauce = sauce_distance(pizza.sauce, constraints['sauce'])
+    if len(pizza.sauce) == 0 and len(constraints['sauce']) == 0:
+        d_sauce = 0
+    else:
+        d_sauce = sauce_distance(pizza.sauce, constraints['sauce'])
     d_toppings = topping_distance(pizza.toppings, constraints['toppings_must'], constraints['toppings_must_not'])
 
     return DOUGH_WEIGHT * d_dough + SAUCE_WEIGHT * d_sauce + TOPPING_WEIGHT * d_toppings
@@ -46,7 +49,10 @@ def pizza_distance(pizza, constraints):
 
 def pizza_distance_class(pizza, constraints):
     d_dough = dough_distance(pizza.dough, constraints.dough)
-    d_sauce = sauce_distance(pizza.sauce, constraints.sauce)
+    if len(pizza.sauce) == 0 and len(constraints.sauce) == 0:
+        d_sauce = 0
+    else:
+        d_sauce = sauce_distance(pizza.sauce, constraints.sauce)
     d_toppings = topping_distance_general(pizza.toppings, constraints.toppings)
 
     return DOUGH_WEIGHT * d_dough + SAUCE_WEIGHT * d_sauce + TOPPING_WEIGHT * d_toppings
@@ -62,7 +68,7 @@ def sauce_distance(source, target):
     # Jaccard distance
     intersection = set(source).intersection(set(target))
     union = set(source).union(set(target))
-    return 1 - len(intersection) / (len(union) + 10**-10)
+    return 1 - len(intersection) / len(union)
 
 
 # Option 2. We ask for at least sauces in query
@@ -181,7 +187,7 @@ def topping_distance_general(source, target):
     # Jaccard distance
     intersection = set(source).intersection(set(target))
     union = set(source).union(set(target))
-    return 1 - len(intersection) / (len(union) + 10**-10)
+    return 1 - len(intersection) / len(union)
 
 
 def retain(case_base, suggested_solution, closest_case):
@@ -199,37 +205,26 @@ def retain(case_base, suggested_solution, closest_case):
 
 
 def forget(case_base):
-    dist_list = []
-    min_distance = 1
+    deletion = None
+    matrix_distance = np.zeros([len(case_base), len(case_base)])
     for i, case in enumerate(case_base):
         distance_row = []
         for case_ in case_base:
             distance_row.append(pizza_distance_class(case, case_))
-        sorted_d = sorted(distance_row)
+        matrix_distance[i, :] = sorted(distance_row)
 
-        if sorted_d[1] < min_distance:
-            min_distance = sorted_d[1]
-            dist_list = []
-            dist_list.append((i, sorted_d))
-        elif sorted_d[1] == min_distance:
-            dist_list.append((i, sorted_d))
+    indices = np.arange(matrix_distance.shape[0])
+    for j in range(1, len(case_base)):
+        indices = np.array(list(set(np.where(matrix_distance[:, j] == min(matrix_distance[indices, j]))[0]).intersection(set(indices))))
 
-    num_case_base = len(case_base)
-    deletion = None
-    for j in range(2, num_case_base):
-        # TODO: in case len(dist_list) > 2
-        if dist_list[0][1][j] < dist_list[1][1][j]:
-            deletion = case_base[dist_list[0][0]]
-            del case_base[dist_list[0][0]]
-            break
-        elif dist_list[0][1][j] > dist_list[1][1][j]:
-            deletion = case_base[dist_list[1][0]]
-            del case_base[dist_list[1][0]]
+        if len(indices) == 1:
+            deletion = case_base[indices[0]]
+            del case_base[indices[0]]
             break
 
     if deletion is None:
-        deletion = case_base[dist_list[randrange(len(dist_list))][0]]
-        del case_base[dist_list[randrange(len(dist_list))][0]]
+        deletion = case_base[indices[randrange(len(indices))][0]]
+        del case_base[indices[randrange(len(indices))][0]]
 
     return case_base, deletion
 
