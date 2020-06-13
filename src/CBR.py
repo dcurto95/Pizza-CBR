@@ -177,12 +177,11 @@ def delete_topping(new_recipe, topping_deletions):
     return new_recipe
 
 
-# TODO: hi ha un altre Jaccard distance (sauce_distance), ho podriem ajuntar?
 def topping_distance_general(source, target):
     # Jaccard distance
     intersection = set(source).intersection(set(target))
     union = set(source).union(set(target))
-    return 1 - len(intersection) / len(union)
+    return 1 - len(intersection) / (len(union) + 10**-10)
 
 
 def revise(closest_case, suggested_solution):
