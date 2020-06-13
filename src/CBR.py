@@ -4,7 +4,7 @@
 # 'toppings_must': [t1, t2, ...],
 # 'toppings_must_not': [t1, t2, ...]}
 import numpy as np
-from random import randrange
+from random import randrange, shuffle
 
 import utils
 from pizza import Pizza
@@ -31,7 +31,10 @@ def retrieve(case_base, constraints, k=3):
         distances[i] = d
 
     # Rank by distance
-    sorted_pizzas = sorted(distances, key=distances.get)  # Petit a gran
+    distances_list = list(distances.items())
+    shuffle(distances_list)
+    sorted_pizzas = sorted(distances_list, key=lambda x: x[1])  # Petit a gran
+    sorted_pizzas = np.asarray(sorted_pizzas, dtype=np.int32)[:, 0]
     most_similar = [(case_base[sorted_pizzas[i]], distances[sorted_pizzas[i]]) for i in range(k)]
     return most_similar
 
