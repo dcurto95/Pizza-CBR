@@ -62,7 +62,7 @@ def sauce_distance(source, target):
     # Jaccard distance
     intersection = set(source).intersection(set(target))
     union = set(source).union(set(target))
-    return 1 - len(intersection) / len(union)
+    return 1 - len(intersection) / (len(union) + 1**-10)
 
 
 # Option 2. We ask for at least sauces in query
@@ -77,7 +77,7 @@ def topping_distance(source, target_must, target_must_not):
     insertions = len(set(target_must) - set(source))
     normalized_insertions = insertions / len(set(target_must))
     deletions = len(set(target_must_not).intersection(set(source)))
-    normalized_deletions = deletions / len(set(target_must_not))
+    normalized_deletions = deletions / (len(set(target_must_not)) + 1**-10)
     return INSERTION_WEIGHT * normalized_insertions + DELETION_WEIGHT * normalized_deletions
 
 
@@ -236,9 +236,8 @@ def forget(case_base):
 
     return case_base, deletions
 
-def get_adapted_pizza(constraints):
-    casebase = utils.load_case_base()
-    result = retrieve(casebase, constraints, k=5)
+def get_adapted_pizza(constraints, case_base):
+    result = retrieve(case_base, constraints, k=5)
     closest_case = result[0]
     if closest_case[1] > 0:
         # ADAPT
