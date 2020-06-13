@@ -6,6 +6,7 @@
 import numpy as np
 
 import utils
+from pizza import Pizza
 from pizza_knowledge_base import get_recipe_from_toppings, KnowledgeBase, group_toppings, get_toppings_in_same_group, \
     get_pretty_print
 
@@ -116,7 +117,9 @@ def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, n
                                 substitute_tasks, topping_deletions):
     # Dough and sauce always changed
     baseline_recipe[0][1] = constraints['dough']
-    baseline_recipe[actions == 'spread'][0][1] = constraints['sauce']
+    sauce_index = actions == 'spread'
+    sauce_index = np.argmax(sauce_index)
+    baseline_recipe[sauce_index][1] = constraints['sauce']
     # Add new tasks
     if add_tasks.size > 0:
         baseline_recipe = np.append(baseline_recipe, add_tasks, axis=0)
