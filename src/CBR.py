@@ -62,7 +62,7 @@ def sauce_distance(source, target):
     # Jaccard distance
     intersection = set(source).intersection(set(target))
     union = set(source).union(set(target))
-    return 1 - len(intersection) / len(union)
+    return 1 - len(intersection) / (len(union) + 10**-10)
 
 
 # Option 2. We ask for at least sauces in query
@@ -77,7 +77,7 @@ def topping_distance(source, target_must, target_must_not):
     insertions = len(set(target_must) - set(source))
     normalized_insertions = insertions / len(set(target_must))
     deletions = len(set(target_must_not).intersection(set(source)))
-    normalized_deletions = deletions / len(set(target_must_not))
+    normalized_deletions = deletions / (len(set(target_must_not)) + 10**-10)
     return INSERTION_WEIGHT * normalized_insertions + DELETION_WEIGHT * normalized_deletions
 
 
@@ -108,7 +108,7 @@ def adapt(constraints, closest_pizza):
                                                               new_ingredients, new_recipe,
                                                               substitute_tasks, topping_deletions)
 
-    return Pizza(constraints['dough'], constraints['sauce'], new_ingredients, new_recipe)
+    return Pizza(constraints['dough'], constraints['sauce'], new_ingredients.tolist(), new_recipe)
 
 
 def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, new_ingredients, baseline_recipe,
@@ -128,7 +128,7 @@ def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, n
     if topping_deletions:
         baseline_recipe = delete_topping(baseline_recipe, topping_deletions)
         new_ingredients = [topping for topping in new_ingredients if topping not in topping_deletions]
-    baseline_recipe = [tuple for x in KnowledgeBase.default_recipe_task_order for tuple in baseline_recipe if
+    baseline_recipe = [tuple.tolist() for x in KnowledgeBase.default_recipe_task_order for tuple in baseline_recipe if
                        tuple[0] == x]
     return baseline_recipe, new_ingredients
 
@@ -238,9 +238,8 @@ def forget(case_base):
     return case_base, deletion
 
 
-def get_adapted_pizza(constraints):
-    casebase = utils.load_case_base()
-    result = retrieve(casebase, constraints, k=5)
+def get_adapted_pizza(constraints, case_base):
+    result = retrieve(case_base, constraints, k=5)
     closest_case = result[0]
     if closest_case[1] > 0:
         # ADAPT
@@ -260,7 +259,7 @@ if __name__ == '__main__':
     case_base = [Pizza(pizza['dough'], pizza['sauce'], pizza['toppings'], pizza['recipe'], pizza['name']) for pizza in
                  pizzas]
 
-    constraints = {'dough': 'classic', 'sauce': ['tomato'], 'toppings_must': ['mushroom', 'york', 'black olives'],
+    constraints = {'dough': 'thin', 'sauce': ['tomato'], 'toppings_must': ['mushroom', 'york', 'black olives','shrimp', 'tuna', 'anchovy'],
                    'toppings_must_not': ['onion']}
 
     # RETRIEVE

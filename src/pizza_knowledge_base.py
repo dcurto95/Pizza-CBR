@@ -136,36 +136,39 @@ def get_toppings_in_same_group(first_group, second_group, must_have_toppings):
 
 def get_pretty_print(recipe):
     text = []
+    step = 1
     for i, task in enumerate(recipe):
-        if isinstance(task[1], list):
-            if len(task[1]) > 1:
-                ingredients_string = ', '.join(task[1][:-1])
-                ingredients_string += ' and ' + task[1][-1]
+        if task[1]:
+            if isinstance(task[1], list):
+                if len(task[1]) > 1:
+                    ingredients_string = ', '.join(task[1][:-1])
+                    ingredients_string += ' and ' + task[1][-1]
+                elif task[1]:
+                    ingredients_string = task[1][0]
             else:
-                ingredients_string = task[1][0]
-        else:
-            ingredients_string = task[1]
+                ingredients_string = task[1]
 
-        if task[0] == 'extend':
-            text.append(f'{i+1}. Extend the {ingredients_string} dough on a wide surface.')
-        if task[0] == 'precook':
-            text.append(f'{i+1}. Precook the {ingredients_string}.')
-        if task[0] == 'chop':
-            text.append(f'{i+1}. Chop the {ingredients_string}.')
-        if task[0] == 'spread':
-            text.append(f'{i+1}. Spread the {ingredients_string} on the dough.')
-        if task[0] == 'scatter':
-            text.append(f'{i+1}. Scatter the {ingredients_string} on the pizza.')
-        if task[0] == 'add_vegetable':
-            text.append(f'{i+1}. Add the {ingredients_string} over pizza.')
-        if task[0] == 'add_meat':
-            text.append(f'{i+1}. Add the {ingredients_string} over pizza.')
-        if task[0] == 'add_fish':
-            text.append(f'{i+1}. Add the {ingredients_string} over pizza.')
-        if task[0] == 'bake':
-            text.append(f'{i+1}. Bake the pizza at 180ºC for approximately 15 minutes (with the oven preheated).')
-        if task[0] == 'add_after_bake':
-            text.append(f'{i+1}. Once cooked, add the {ingredients_string}')
+            if task[0] == 'extend':
+                text.append(f'{step}. Extend the {ingredients_string} dough on a wide surface.')
+            if task[0] == 'precook':
+                text.append(f'{step}. Precook the {ingredients_string}.')
+            if task[0] == 'chop':
+                text.append(f'{step}. Chop the {ingredients_string}.')
+            if task[0] == 'spread':
+                text.append(f'{step}. Spread the {ingredients_string} on the dough.')
+            if task[0] == 'scatter':
+                text.append(f'{step}. Scatter the {ingredients_string} on the pizza.')
+            if task[0] == 'add_vegetable':
+                text.append(f'{step}. Add the {ingredients_string} over pizza.')
+            if task[0] == 'add_meat':
+                text.append(f'{step}. Add the {ingredients_string} over pizza.')
+            if task[0] == 'add_fish':
+                text.append(f'{step}. Add the {ingredients_string} over pizza.')
+            if task[0] == 'bake':
+                text.append(f'{step}. Bake the pizza at 180ºC for approximately 15 minutes (with the oven preheated).')
+            if task[0] == 'add_after_bake':
+                text.append(f'{step}. Once cooked, add the {ingredients_string}')
+            step += 1
 
     text.append('Enjoy!')
     return '\n'.join(text)
