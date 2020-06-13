@@ -4,6 +4,7 @@
 # 'toppings_must': [t1, t2, ...],
 # 'toppings_must_not': [t1, t2, ...]}
 import numpy as np
+from random import randrange
 
 import utils
 from pizza import Pizza
@@ -18,7 +19,7 @@ INSERTION_WEIGHT = 0.67
 DELETION_WEIGHT = 0.33
 
 THRESHOLD_INSERTION = 0.4
-MAX_CBY = 40  # MAX ELEMENTS CASE BASE LIBRARY
+MAX_CBY = 20  # MAX ELEMENTS CASE BASE LIBRARY
 
 
 def retrieve(case_base, constraints, k=3):
@@ -45,11 +46,8 @@ def pizza_distance(pizza, constraints):
 
 def pizza_distance_class(pizza, constraints):
     d_dough = dough_distance(pizza.dough, constraints.dough)
-    if len(pizza.sauce) > 0 and len(constraints.sauce) > 0:
-        d_sauce = sauce_distance(pizza.sauce, constraints.sauce)
-    else:
-        d_sauce = 1
-    d_toppings = topping_distance_class(pizza.toppings, constraints.toppings)
+    d_sauce = sauce_distance(pizza.sauce, constraints.sauce)
+    d_toppings = topping_distance_general(pizza.toppings, constraints.toppings)
 
     return DOUGH_WEIGHT * d_dough + SAUCE_WEIGHT * d_sauce + TOPPING_WEIGHT * d_toppings
 
@@ -180,67 +178,64 @@ def delete_topping(new_recipe, topping_deletions):
 
 
 # TODO: hi ha un altre Jaccard distance (sauce_distance), ho podriem ajuntar?
-def topping_distance_class(source, target):
+def topping_distance_general(source, target):
     # Jaccard distance
     intersection = set(source).intersection(set(target))
     union = set(source).union(set(target))
     return 1 - len(intersection) / len(union)
 
 
-def revise(case_base, suggested_solution):
+def revise(closest_case, suggested_solution):
     # Calculate distances
-    distances = []
-    for i, pizza in enumerate(case_base):
-        d = pizza_distance(pizza, suggested_solution)
-        distances.append(d)
-
-    # Select minimum distance
-    min_distance = min(distances)
-    return min_distance
+    return pizza_distance_class(closest_case, suggested_solution)
 
 
 def retain(case_base, suggested_solution, distance):
-    insertion = {}
+    insertion = None
     if distance > THRESHOLD_INSERTION:
         case_base.append(suggested_solution)
         insertion = suggested_solution
     deletions_list = []
     while len(case_base) > MAX_CBY:
-        case_base, deletions = forget(case_base)
-        deletions_list.append(deletions)
-    # TODO: write json
+        case_base, deletion = forget(case_base)
+        deletions_list.append(deletion)
     return insertion, deletions_list
 
 
 def forget(case_base):
     dist_list = []
-    max_distance = 1
+    min_distance = 1
     for i, case in enumerate(case_base):
         distance_row = []
         for case_ in case_base:
             distance_row.append(pizza_distance_class(case, case_))
         sorted_d = sorted(distance_row)
 
-        if sorted_d[1] < max_distance:
-            max_distance = sorted_d[1]
+        if sorted_d[1] < min_distance:
+            min_distance = sorted_d[1]
             dist_list = []
             dist_list.append((i, sorted_d))
-        elif sorted_d[1] == max_distance:
+        elif sorted_d[1] == min_distance:
             dist_list.append((i, sorted_d))
 
     num_case_base = len(case_base)
+    deletion = None
     for j in range(2, num_case_base):
         # TODO: in case len(dist_list) > 2
         if dist_list[0][1][j] < dist_list[1][1][j]:
-            deletions = case_base[dist_list[0][0]]
+            deletion = case_base[dist_list[0][0]]
             del case_base[dist_list[0][0]]
             break
         elif dist_list[0][1][j] > dist_list[1][1][j]:
-            deletions = case_base[dist_list[1][0]]
+            deletion = case_base[dist_list[1][0]]
             del case_base[dist_list[1][0]]
             break
 
-    return case_base, deletions
+    if deletion is None:
+        deletion = case_base[dist_list[randrange(len(dist_list))][0]]
+        del case_base[dist_list[randrange(len(dist_list))][0]]
+
+    return case_base, deletion
 
 
 def get_adapted_pizza(constraints):
@@ -272,6 +267,7 @@ if __name__ == '__main__':
     result = retrieve(case_base, constraints, k=5)
 
     closest_case = result[0]
+    adapted_pizza = closest_case[0]
     if closest_case[1] > 0:
         # ADAPT
         adapted_pizza = adapt(constraints, closest_case[0])
@@ -280,10 +276,8 @@ if __name__ == '__main__':
     for r in result:
         print(r)
 
-    # REUSE
-
     # REVISE
-    distance = revise(case_base, constraints)  # TODO: constraints must be changed by REUSE result
+    distance = revise(closest_case[0], adapted_pizza)
 
     # RETAIN
-    insertion, deletions = retain(case_base, constraints, distance)  # TODO: constraints must be changed by REUSE result
+    insertion, deletions = retain(case_base, adapted_pizza, distance)
