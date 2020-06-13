@@ -24,6 +24,7 @@ def center_app_in_screen(app, frame_width=550, frame_height=600):
 
 
 app = app.App()
+app.resizable(False, False)
 center_app_in_screen(app)
 app.title("Pizza recipes CBR ")
 app.iconbitmap('logo.ico')

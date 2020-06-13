@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk, messagebox
-
+import tkinter as tk
 from CBR import retrieve
 from pizza_knowledge_base import KnowledgeBase, get_pretty_print
 from src import utils, CBR
@@ -10,7 +10,7 @@ class App(Tk):
         Tk.__init__(self, *args, **kwargs)
         # Setup Frame
         container = Frame(self)
-        container.pack(side="top", fill="both", expand=True)
+        container.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
 
@@ -73,10 +73,14 @@ class StartPage(Frame):
         toppings = utils.get_toppings()
         toppings.sort()
 
+
+        recipe_creator = Label(self, text="RECIPE GENERATOR", font="Helvetica 14 bold underline")
+        recipe_creator.grid(row=0, column=0, columnspan=2, pady=(10,0), sticky="nsew")
+
         #Label Select ingredients
         ingredients_frame = Frame(self)
         ingredient_label = Label(ingredients_frame, text="Select the must-contain toppings", font=controller.header_font)
-        ingredient_label.grid(row=0, column=0, ipadx=10, ipady=10)
+        ingredient_label.grid(row=0, column=0, ipadx=10, ipady=10, sticky="nsew")
 
 
         # #Create frame and scrollbar
@@ -94,12 +98,12 @@ class StartPage(Frame):
         for ingredient in toppings:
             ingredient_listbox.insert(END, ingredient)
 
-        ingredients_frame.grid(row=0, column=0)
+        ingredients_frame.grid(row=1, column=0, pady=(10, 5))
 
         ingredients_discarded_frame = Frame(self)
         ingredient_discarded_label = Label(ingredients_discarded_frame, text="Select the toppings you dislike",
                                            font=controller.header_font)
-        ingredient_discarded_label.grid(row=0, column=0, ipadx=10, ipady=10)
+        ingredient_discarded_label.grid(row=1, column=0, ipadx=10, ipady=10)
 
 
         # #Create frame and scrollbar
@@ -121,14 +125,14 @@ class StartPage(Frame):
         for ingredient in toppings:
             ingredient_discarded_listbox.insert(END, ingredient)
 
-        ingredients_discarded_frame.grid(row=0, column=1)
+        ingredients_discarded_frame.grid(row=1, column=1, pady=(10, 5))
 
         #SAUCES
         sauces_frame = Frame(self)
 
         #Label select sauces
         sauces_label = Label(sauces_frame, text="Select the sauces you want", font=controller.header_font)
-        sauces_label.grid(column=0, row=0, columnspan=2, ipadx=5, ipady=5, sticky="NSEW")
+        sauces_label.grid(column=0, row=0, columnspan=2, ipadx=5, ipady=5, pady=(10,0), sticky="NSEW")
 
 
         #Dropdown sauces
@@ -147,23 +151,23 @@ class StartPage(Frame):
                 check_btn.grid(row=counter, column=1, sticky=W)
                 counter = counter + 1
 
-        sauces_frame.grid(row=1, column=0, padx=10, pady=10, columnspan=2)
+        sauces_frame.grid(row=2, column=0, padx=10, pady=10, columnspan=2)
 
         #Label Select Dough
         dough_label = Label(self, text="Select the dough", font=controller.header_font)
-        dough_label.grid(row=2, columnspan=2)
+        dough_label.grid(row=3, columnspan=2, pady=(10, 0))
 
         #Dropdown dough
         dough_types = KnowledgeBase.dough
 
         dough_dropdown = ttk.Combobox(self, value=dough_types, state="readonly")
         dough_dropdown.current(1)
-        dough_dropdown.grid(row=3, columnspan=2, pady=10)
+        dough_dropdown.grid(row=4, columnspan=2, pady=(5,0))
 
 
         #Button generate recipe
         add_btn = Button(self, text="Generate recipe", command=lambda: controller.generate_recipe(ingredient_listbox, ingredient_discarded_listbox, dough_dropdown, vars, toppings))
-        add_btn.grid(row=4, columnspan=2, ipadx=5, ipady=5, pady=20)
+        add_btn.grid(row=5, columnspan=2, ipadx=5, ipady=5, pady=20)
 
 
 
@@ -173,12 +177,14 @@ class RecipePage(Frame):
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
 
-        recipe_frame = Frame(self)
-        recipe_label = Label(recipe_frame, text="Recipe", font=controller.header_font)
-        recipe_label.grid(row=0, column=0, ipadx=10, ipady=10)
+        header_font = 'Helvetica 10 bold'
 
-        ingredients_label = Label(recipe_frame, text="Ingredients", font=controller.header_font)
-        ingredients_label.grid(row=0, column=0, ipadx=10, ipady=10)
+        recipe_frame = Frame(self)
+        recipe_label = Label(recipe_frame, text="RECIPE", font="Helvetica 14 bold underline")
+        recipe_label.grid(row=0, column=0, pady=(10, 10))
+
+        # ingredients_label = Label(recipe_frame, text="Ingredients", font=controller.header_font)
+        # ingredients_label.grid(row=0, column=0)
 
 
         self.text_dough = StringVar()
@@ -186,29 +192,29 @@ class RecipePage(Frame):
         self.text_toppings = StringVar()
         self.steps = StringVar()
 
-        dough_label = Label(recipe_frame, text="Dough", font=controller.header_font)
-        dough_label.grid(row=1, column=0, ipadx=10, ipady=10)
+        dough_label = Label(recipe_frame, text="Dough", font=header_font)
+        dough_label.grid(row=1, column=0)
 
         pizza_dough = Label(recipe_frame, textvariable=self.text_dough)
         pizza_dough.grid(row=2, column=0)
 
-        sauce_label = Label(recipe_frame, text="Sauces", font=controller.header_font)
-        sauce_label.grid(row=3, column=0, ipadx=10, ipady=10)
+        sauce_label = Label(recipe_frame, text="Sauces", font=header_font)
+        sauce_label.grid(row=3, column=0)
 
         pizza_sauce = Label(recipe_frame, textvariable=self.text_sauces)
         pizza_sauce.grid(row=4, column=0)
 
-        toppings_label = Label(recipe_frame, text="Toppings", font=controller.header_font)
-        toppings_label.grid(row=5, column=0, ipadx=10, ipady=10)
+        toppings_label = Label(recipe_frame, text="Toppings", font=header_font)
+        toppings_label.grid(row=5, column=0)
 
         pizza_toppings = Label(recipe_frame, textvariable=self.text_toppings)
-        pizza_toppings.grid(row=6, column=0)
+        pizza_toppings.grid(row=6, column=0, pady=(0, 20))
 
         steps_label = Label(recipe_frame, text="Preparation", font=controller.header_font)
-        steps_label.grid(row=7, column=0, ipadx=10, ipady=10)
+        steps_label.grid(row=7, column=0)
 
-        pizza_steps = Label(recipe_frame, textvariable=self.steps) #, font=controller.header_font)
-        pizza_steps.grid(row=8, column=0, ipadx=10, ipady=10)
+        pizza_steps = Label(recipe_frame, textvariable=self.steps)
+        pizza_steps.grid(row=8, column=0)
 
         back_btn = Button(self, text="Go Back", command=lambda: controller.show_frame(StartPage))
         back_btn.pack(anchor="w")
