@@ -4,10 +4,10 @@
 # 'toppings_must': [t1, t2, ...],
 # 'toppings_must_not': [t1, t2, ...]}
 import numpy as np
-from pizza import Pizza
+
+import utils
 from pizza_knowledge_base import get_recipe_from_toppings, KnowledgeBase, group_toppings, get_toppings_in_same_group, \
     get_pretty_print
-import utils
 
 DOUGH_WEIGHT = 0.15
 SAUCE_WEIGHT = 0.15
@@ -105,8 +105,9 @@ def adapt(constraints, closest_pizza):
     add_tasks = insert_tasks[add_tasks_index] if add_tasks_index else np.array([])
     insert_tasks = insert_tasks[~np.asarray(add_tasks_index)] if add_tasks_index else np.array([])
 
-    new_recipe = update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, new_ingredients, new_recipe,
-                                             substitute_tasks, topping_deletions)
+    new_recipe, new_ingredients = update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks,
+                                                              new_ingredients, new_recipe,
+                                                              substitute_tasks, topping_deletions)
 
     return Pizza(constraints['dough'], constraints['sauce'], new_ingredients, new_recipe)
 
@@ -125,9 +126,10 @@ def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, n
     # Delete toppings
     if topping_deletions:
         baseline_recipe = delete_topping(baseline_recipe, topping_deletions)
+        new_ingredients = [topping for topping in new_ingredients if topping not in topping_deletions]
     baseline_recipe = [tuple for x in KnowledgeBase.default_recipe_task_order for tuple in baseline_recipe if
                        tuple[0] == x]
-    return baseline_recipe
+    return baseline_recipe, new_ingredients
 
 
 def get_delete_insert_substitute_toppings(closest_pizza, constraints):
