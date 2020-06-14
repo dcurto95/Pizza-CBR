@@ -5,16 +5,16 @@ class KnowledgeBase:
     sauce = ('tomato', 'steak & grill', 'bourbon barbecue', 'tomato and oregano', 'carbonara', 'creme barbecue',
              'barbecue', 'burger')
     meat = ('sausage', 'marinated chicken', 'york', 'beef', 'pepperoni', 'new orleans pork',
-            'quarter pounder', 'bacon crispy', 'bacon', 'chicken pops', 'pulled pork', 'pepperoni', 'mini burger')
-    fish = ('tuna', 'prawn', 'anchovy')
+            'quarter pounder', 'bacon crispy', 'bacon', 'chicken pops', 'pulled pork', 'mini burger')
+    fish = ('tuna', 'prawn', 'anchovy', 'salmon')
     cheese = (
         'goat cheese', 'cheddar cheese', 'provolone cheese', '5 gourmet cheeses', 'mix 4 cheeses', 'cured swiss cheese',
         'mozzarella topping', 'cheddar cheese cream')
     dough = ('thin', 'classic', 'quadroller', '3 floors', 'garlic cheese filled border', 'gluten free')
     after_bake = ('nachos after baking and cut', 'pineapple', 'oregano', 'jamon iberico',
-                  'cesar dressing', 'olive oil', 'fresh parmesan cheese')
+                  'cesar dressing', 'olive oil', 'fresh parmesan cheese', 'caviar')
     vegetable = ('fresh tomato', 'caramelized onion', 'rocket', 'extra candied tomatoe', 'onion', 'green pepper',
-                 'roasted pepper', 'black olives', 'mushroom', 'bell pepper')
+                 'roasted pepper', 'black olives', 'mushroom', 'bell pepper', 'pear')
 
     # All ingredients in precook must already be in another set
     precook = (

@@ -58,7 +58,7 @@ class App(Tk):
                 constraints = {'dough': dough_selected, 'sauce': sauces_selected, 'toppings_must': toppings_selected,
                                'toppings_must_not': toppings_discarded}
 
-                self.recommended_pizza = CBR.cbr_cycle(constraints, self.case_base)
+                self.recommended_pizza = CBR.cbr_cycle(constraints, self.case_base, verbose=True)
                 self.show_frame(RecipePage)
                 self.frames[RecipePage].update_view(self.recommended_pizza)
 
@@ -211,6 +211,6 @@ class RecipePage(Frame):
         pizza.toppings.sort()
 
         self.text_dough.set(pizza.dough)
-        self.text_sauces.set(('\n').join(pizza.sauce))
-        self.text_toppings.set(('\n').join(pizza.toppings))
+        self.text_sauces.set('\n'.join(pizza.sauce))
+        self.text_toppings.set('\n'.join(pizza.toppings))
         self.steps.set(get_pretty_print(pizza.recipe))

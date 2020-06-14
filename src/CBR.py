@@ -1,15 +1,12 @@
-# I expect constraints to be a dict
-# {'dough': dough,
-# 'sauce': [s1, s2, ...],
-# 'toppings_must': [t1, t2, ...],
-# 'toppings_must_not': [t1, t2, ...]}
-from random import randrange, shuffle
+from random import shuffle
 
 import numpy as np
 
 from pizza import Pizza
 from pizza_knowledge_base import get_recipe_from_toppings, KnowledgeBase, group_toppings, get_toppings_in_same_group
 
+
+# ##### S Y S T E M   P A R A M E T E R S #####
 DOUGH_WEIGHT = 0.15
 SAUCE_WEIGHT = 0.15
 TOPPING_WEIGHT = 0.7
@@ -22,108 +19,83 @@ MAX_CBY = 50  # MAX ELEMENTS CASE BASE LIBRARY
 MAX_INGREDIENTS = 7
 
 
+# ##### D I S T A N C E S #####
+
+# Distance for retrieval (between a pizza and user constraints)
+def pizza_distance_constraints(pizza, constraints):
+    d_dough = dough_distance(pizza.dough, constraints['dough'])
+    d_sauce = sauce_distance(pizza.sauce, constraints['sauce'])
+    d_toppings = topping_distance_constraints(pizza.toppings, constraints['toppings_must'], constraints['toppings_must_not'])
+
+    return DOUGH_WEIGHT * d_dough + SAUCE_WEIGHT * d_sauce + TOPPING_WEIGHT * d_toppings
+
+
+# Distance for learning (between two already-created pizzas)
+def pizza_distance(pizza_1, pizza_2):
+    d_dough = dough_distance(pizza_1.dough, pizza_2.dough)
+    d_sauce = sauce_distance(pizza_1.sauce, pizza_2.sauce)
+    d_toppings = topping_distance(pizza_1.toppings, pizza_2.toppings)
+
+    return DOUGH_WEIGHT * d_dough + SAUCE_WEIGHT * d_sauce + TOPPING_WEIGHT * d_toppings
+
+
+# Hamming or discrete Manhattan distance for dough comparison
+def dough_distance(source, target):
+    return int(source != target)
+
+
+# Jaccard distance for sauce comparison
+def sauce_distance(source, target):
+    return jaccard_distance(source, target)
+
+
+# Modified edit distance with insertion and deletion counts for topping comparison in retrieval (using must and must_not lists)
+def topping_distance_constraints(source, target_must, target_must_not):
+    insertions = len(set(target_must) - set(source))
+    normalized_insertions = insertions / len(set(target_must))  # Forced to have len > 0 in GUI
+    deletions = len(set(target_must_not).intersection(set(source)))
+    normalized_deletions = deletions / (len(set(target_must_not)) + 1e-10)
+    return INSERTION_WEIGHT * normalized_insertions + DELETION_WEIGHT * normalized_deletions
+
+
+# Jaccard distance for topping comparison between two already-created pizzaes
+def topping_distance(toppings_1, toppings_2):
+    return jaccard_distance(toppings_1, toppings_2)
+
+
+# Jaccard distance implementation
+def jaccard_distance(set_1, set_2):
+    intersection = set(set_1).intersection(set(set_2))
+    union = set(set_1).union(set(set_2))
+    if len(union) == 0:  # Special case where both are empty sets
+        return 0
+    return 1 - len(intersection) / len(union)
+
+
+# ##### R E T R I E V E #####
+
+# Main retrieve function, returns k pairs of (pizza, distance) for closest pizzas to user constraints
 def retrieve(case_base, constraints, k=3):
     k = min(k, len(case_base))
+
     # Calculate distances
     distances = {}
     for i, pizza in enumerate(case_base):
-        d = pizza_distance(pizza, constraints)
+        d = pizza_distance_constraints(pizza, constraints)
         distances[i] = d
 
     # Rank by distance
     distances_list = list(distances.items())
-    shuffle(distances_list)
-    sorted_pizzas = sorted(distances_list, key=lambda x: x[1])  # Petit a gran
-    sorted_pizzas = np.asarray(sorted_pizzas, dtype=np.int32)[:, 0]
+    shuffle(distances_list)  # Shuffle to randomly breack ties between pizzas with same distance
+    sorted_pizzas = sorted(distances_list, key=lambda x: x[1])  # Sort by distance, low to high
+    sorted_pizzas = np.asarray(sorted_pizzas, dtype=np.int32)[:, 0]  # Take the idx
     most_similar = [(case_base[sorted_pizzas[i]], distances[sorted_pizzas[i]]) for i in range(k)]
     return most_similar
 
 
-def pizza_distance(pizza, constraints):
-    d_dough = dough_distance(pizza.dough, constraints['dough'])
-    if len(pizza.sauce) == 0 and len(constraints['sauce']) == 0:
-        d_sauce = 0
-    else:
-        d_sauce = sauce_distance(pizza.sauce, constraints['sauce'])
-    d_toppings = topping_distance(pizza.toppings, constraints['toppings_must'], constraints['toppings_must_not'])
+# ##### A D A P T #####
 
-    return DOUGH_WEIGHT * d_dough + SAUCE_WEIGHT * d_sauce + TOPPING_WEIGHT * d_toppings
-
-
-def pizza_distance_class(pizza, constraints):
-    d_dough = dough_distance(pizza.dough, constraints.dough)
-    if len(pizza.sauce) == 0 and len(constraints.sauce) == 0:
-        d_sauce = 0
-    else:
-        d_sauce = sauce_distance(pizza.sauce, constraints.sauce)
-    d_toppings = topping_distance_general(pizza.toppings, constraints.toppings)
-
-    return DOUGH_WEIGHT * d_dough + SAUCE_WEIGHT * d_sauce + TOPPING_WEIGHT * d_toppings
-
-
-def dough_distance(source, target):
-    # Hamming distance
-    return int(source != target)
-
-
-# Option 1. We ask for exactly same sauces than query
-def sauce_distance(source, target):
-    # Jaccard distance
-    intersection = set(source).intersection(set(target))
-    union = set(source).union(set(target))
-    return 1 - len(intersection) / len(union)
-
-
-# Option 2. We ask for at least sauces in query
-def sauce_distance_2(source, target):
-    # Intersection over cardinality of target
-    intersection = set(source).intersection(set(target))
-    return 1 - len(intersection) / len(set(target))
-
-
-def topping_distance(source, target_must, target_must_not):
-    # Edit distance with insertion and deletion
-    insertions = len(set(target_must) - set(source))
-    normalized_insertions = insertions / len(set(target_must))
-    deletions = len(set(target_must_not).intersection(set(source)))
-    normalized_deletions = deletions / (len(set(target_must_not)) + 10 ** -10)
-    return INSERTION_WEIGHT * normalized_insertions + DELETION_WEIGHT * normalized_deletions
-
-
-def adapt(constraints, closest_pizza):
-    new_recipe = np.array(closest_pizza.recipe, copy=True)
-    actions = new_recipe[:, 0]
-
-    closest_pizza.set_recipe()  # To create new references
-    new_ingredients = closest_pizza.toppings.copy()
-
-    # Obtain the topping differences separated by task
-    topping_deletions, topping_insertions, topping_substitutions = get_delete_insert_substitute_toppings(closest_pizza,
-                                                                                                         constraints)
-    # Update the ingredients list of the adapted pizza
-    new_ingredients.extend(topping_insertions)
-    new_ingredients = np.asarray(new_ingredients)
-
-    # Obtain the steps for each list of toppings
-    insert_tasks = np.asarray(get_recipe_from_toppings('', [], topping_insertions))
-    insert_tasks = insert_tasks[(insert_tasks[:, 0] != 'bake') & (insert_tasks[:, 0] != 'extend')]
-    substitute_tasks = np.asarray(get_recipe_from_toppings('', [], topping_substitutions))
-    substitute_tasks = substitute_tasks[(substitute_tasks[:, 0] != 'bake') & (substitute_tasks[:, 0] != 'extend')]
-
-    # Split the topping insertions by new steps in the recipes and appending toppings in existing steps
-    add_tasks_index = [task_tuple[0] not in actions for task_tuple in insert_tasks]
-    add_tasks = insert_tasks[add_tasks_index] if add_tasks_index else np.array([])
-    insert_tasks = insert_tasks[~np.asarray(add_tasks_index)] if add_tasks_index else np.array([])
-
-    # Create the recipe
-    new_recipe, new_ingredients = update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks,
-                                                              new_ingredients, new_recipe,
-                                                              substitute_tasks, topping_deletions)
-    if not isinstance(new_ingredients, list):
-        new_ingredients = new_ingredients.tolist()
-    new_ingredients = list(set(new_ingredients))
-    return Pizza(constraints['dough'], constraints['sauce'], new_ingredients, new_recipe)
-
+# Aux functions
 
 def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, new_ingredients, baseline_recipe,
                                 substitute_tasks, topping_deletions):
@@ -215,17 +187,49 @@ def delete_topping(new_recipe, topping_deletions):
     return new_recipe
 
 
-def topping_distance_general(source, target):
-    # Jaccard distance
-    intersection = set(source).intersection(set(target))
-    union = set(source).union(set(target))
-    return 1 - len(intersection) / len(union)
+# Main adapt function. Takes the retrieved pizza and the set of constraints by the user. Returns an adapted pizza and recipe.
+def adapt(constraints, closest_pizza):
+    new_recipe = np.array(closest_pizza.recipe, copy=True)
+    actions = new_recipe[:, 0]
+
+    closest_pizza.set_recipe()  # To create new references
+    new_ingredients = closest_pizza.toppings.copy()
+
+    # Obtain the topping differences separated by task
+    topping_deletions, topping_insertions, topping_substitutions = get_delete_insert_substitute_toppings(closest_pizza,
+                                                                                                         constraints)
+    # Update the ingredients list of the adapted pizza
+    new_ingredients.extend(topping_insertions)
+    new_ingredients = np.asarray(new_ingredients)
+
+    # Obtain the steps for each list of toppings
+    insert_tasks = np.asarray(get_recipe_from_toppings('', [], topping_insertions))
+    insert_tasks = insert_tasks[(insert_tasks[:, 0] != 'bake') & (insert_tasks[:, 0] != 'extend')]
+    substitute_tasks = np.asarray(get_recipe_from_toppings('', [], topping_substitutions))
+    substitute_tasks = substitute_tasks[(substitute_tasks[:, 0] != 'bake') & (substitute_tasks[:, 0] != 'extend')]
+
+    # Split the topping insertions by new steps in the recipes and appending toppings in existing steps
+    add_tasks_index = [task_tuple[0] not in actions for task_tuple in insert_tasks]
+    add_tasks = insert_tasks[add_tasks_index] if add_tasks_index else np.array([])
+    insert_tasks = insert_tasks[~np.asarray(add_tasks_index)] if add_tasks_index else np.array([])
+
+    # Create the recipe
+    new_recipe, new_ingredients = update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks,
+                                                              new_ingredients, new_recipe,
+                                                              substitute_tasks, topping_deletions)
+    if not isinstance(new_ingredients, list):
+        new_ingredients = new_ingredients.tolist()
+    new_ingredients = list(set(new_ingredients))
+    return Pizza(constraints['dough'], constraints['sauce'], new_ingredients, new_recipe)
 
 
-def retain(case_base, suggested_solution, closest_case):
+# ##### L E A R N #####
+
+# Add suggested pizza to the case base under certain circumstances
+def learn(case_base, suggested_solution, closest_case):
     insertion = None
     # Calculate distances
-    distance = pizza_distance_class(closest_case, suggested_solution)
+    distance = pizza_distance(closest_case, suggested_solution)
     if distance > THRESHOLD_INSERTION and len(suggested_solution.toppings) <= MAX_INGREDIENTS:
         case_base.append(suggested_solution)
         insertion = suggested_solution
@@ -236,41 +240,73 @@ def retain(case_base, suggested_solution, closest_case):
     return insertion, deletions_list
 
 
+# Removes the least useful case in the case library
 def forget(case_base):
     deletion = None
+
+    # Store at each row the distance of a case to all the others, sorted (first column will have the minimums)
     matrix_distance = np.zeros([len(case_base), len(case_base)])
     for i, case in enumerate(case_base):
         distance_row = []
         for case_ in case_base:
-            distance_row.append(pizza_distance_class(case, case_))
+            distance_row.append(pizza_distance(case, case_))
         matrix_distance[i, :] = sorted(distance_row)
 
+    # Navigate through columns to break ties
     indices = np.arange(matrix_distance.shape[0])
-    for j in range(1, len(case_base)):
-        indices = np.array(list(
-            set(np.where(matrix_distance[:, j] == min(matrix_distance[indices, j]))[0]).intersection(set(indices))))
+    for j in range(1, len(case_base)):  # Start at 1 to avoid 0-distances between itself
+        where_min_dist = np.where(matrix_distance[:, j] == np.min(matrix_distance[indices, j]))[0]
+        indices = np.setdiff1d(indices, where_min_dist)
+
+        # indices = np.array(list(
+        #     set(np.where(matrix_distance[:, j] == min(matrix_distance[indices, j]))[0]).intersection(set(indices))))
 
         if len(indices) == 1:
             deletion = case_base[indices[0]]
             del case_base[indices[0]]
             break
 
+    # If all had the same distances, remove a random one
     if deletion is None:
-        deletion = case_base[indices[randrange(len(indices))][0]]
-        del case_base[indices[randrange(len(indices))][0]]
+        rnd_idx = np.random.randint(len(indices))
+        deletion = case_base[indices[rnd_idx]]
+        del case_base[indices[rnd_idx]]
 
     return case_base, deletion
 
 
-def cbr_cycle(constraints, case_base):
-    result = retrieve(case_base, constraints, k=5)
-    closest_case = result[0]
+# ##### M A I N   C B R   C Y C L E #####
 
-    if closest_case[1] > 0:
-        # ADAPT
-        pizza_to_return = adapt(constraints, closest_case[0])
+def cbr_cycle(constraints, case_base, verbose=False):
+    # Retrieve
+    result = retrieve(case_base, constraints, k=1)
+    closest_case, closest_dist = result[0]
 
+    if verbose:
+        print('*** R E T R I E V E ***')
+        print('Case that best matches constraints: {}, with distance = {:.3f}'.format(closest_case, closest_dist))
+
+    # Adapt if needed
+    if closest_dist > 0:
+        adapted_case = adapt(constraints, closest_case)
+
+        if verbose:
+            print('*** A D A P T ***')
+            print('Adapted pizza: {}'.format(adapted_case))
     else:
-        pizza_to_return = closest_case[0]
-    insertion, deletions = retain(case_base, pizza_to_return, closest_case[0])
-    return pizza_to_return
+        adapted_case = closest_case
+
+    # Evaluate
+    pass
+
+    # Learn
+    insertion, deletions_list = learn(case_base, adapted_case, closest_case)
+    if verbose:
+        print('*** L E A R N ***')
+        if insertion is None:
+            print('The adapted pizza was NOT learned in the case library')
+        else:
+            print('The adapted pizza was learned to the case library. {} cases have been removed'.format(len(deletions_list)))
+        print('\n\n')
+
+    return adapted_case
