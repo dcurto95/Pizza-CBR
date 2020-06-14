@@ -131,6 +131,10 @@ def get_toppings_in_same_group(first_group, second_group, must_have_toppings):
             different_groups.extend(value)
         else:
             matching_groups.extend(value)
+
+    different_groups = list(set(different_groups))
+    matching_groups = list(set(matching_groups))
+
     return different_groups, matching_groups
 
 
@@ -167,7 +171,7 @@ def get_pretty_print(recipe):
             if task[0] == 'bake':
                 text.append(f'{step}. Bake the pizza at 180ºC for approximately 15 minutes (with the oven preheated).')
             if task[0] == 'add_after_bake':
-                text.append(f'{step}. Once cooked, add the {ingredients_string}')
+                text.append(f'{step}. Once cooked, add the {ingredients_string}.')
             step += 1
 
     text.append('Enjoy!')

@@ -19,7 +19,7 @@ INSERTION_WEIGHT = 0.67
 DELETION_WEIGHT = 0.33
 
 THRESHOLD_INSERTION = 0.4
-MAX_CBY = 40  # MAX ELEMENTS CASE BASE LIBRARY
+MAX_CBY = 50  # MAX ELEMENTS CASE BASE LIBRARY
 
 
 def retrieve(case_base, constraints, k=3):
@@ -116,8 +116,10 @@ def adapt(constraints, closest_pizza):
     new_recipe, new_ingredients = update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks,
                                                               new_ingredients, new_recipe,
                                                               substitute_tasks, topping_deletions)
-
-    return Pizza(constraints['dough'], constraints['sauce'], new_ingredients.tolist(), new_recipe)
+    if not isinstance(new_ingredients, list):
+        new_ingredients = new_ingredients.tolist()
+    new_ingredients = list(set(new_ingredients))
+    return Pizza(constraints['dough'], constraints['sauce'], new_ingredients, new_recipe)
 
 
 def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, new_ingredients, baseline_recipe,
@@ -131,7 +133,7 @@ def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, n
     if add_tasks.size > 0:
         baseline_recipe = np.append(baseline_recipe, add_tasks, axis=0)
     for task_tuple in baseline_recipe:
-        substitute_topping(constraints, new_ingredients, substitute_tasks, task_tuple)
+        new_ingredients = substitute_topping(constraints, new_ingredients, substitute_tasks, task_tuple)
         insert_topping(insert_tasks, task_tuple)
     # Delete toppings
     if topping_deletions:
@@ -163,7 +165,11 @@ def substitute_topping(constraints, new_ingredients, substitute_tasks, task_tupl
         for index, replacement in zip(topping_index, topping_replacements):
             new_ingredients[new_ingredients == task_tuple[1][index]] = replacement
             task_tuple[1][index] = replacement
-
+        if len(topping_replacements) > len(topping_index):
+            for replacement in topping_replacements[len(topping_index):]:
+                task_tuple[1].append(replacement)
+                new_ingredients = np.append(new_ingredients, replacement)
+    return new_ingredients
 
 def insert_topping(insert_tasks, task_tuple):
     # Insert toppings
@@ -175,12 +181,14 @@ def insert_topping(insert_tasks, task_tuple):
 
 def delete_topping(new_recipe, topping_deletions):
     topping_deletions = set(topping_deletions)
+    deleted = 0
     for i, task_tuple in enumerate(new_recipe):
         found_toppings = topping_deletions.intersection(set(task_tuple[1]))
 
         if found_toppings:
             if len(task_tuple[1]) == len(found_toppings):
-                new_recipe = np.delete(new_recipe, i, 0)
+                new_recipe = np.delete(new_recipe, i - deleted, 0)
+                deleted += 1
             else:
                 task_tuple[1] = [topping for topping in task_tuple[1] if topping not in found_toppings]
     return new_recipe
