@@ -243,12 +243,15 @@ def forget(case_base):
 def get_adapted_pizza(constraints, case_base):
     result = retrieve(case_base, constraints, k=5)
     closest_case = result[0]
+    pizza_to_return = {}
     if closest_case[1] > 0:
         # ADAPT
-        adapted_pizza = adapt(constraints, closest_case[0])
-        return adapted_pizza
+        pizza_to_return = adapt(constraints, closest_case[0])
+
     else:
-        return closest_case[0]
+        pizza_to_return = closest_case[0]
+    insertion, deletions = retain(case_base, pizza_to_return, closest_case[0])
+    return pizza_to_return
 
 
 if __name__ == '__main__':
