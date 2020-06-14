@@ -1,9 +1,10 @@
+import tkinter as tk
 from tkinter import *
 from tkinter import ttk, messagebox
-import tkinter as tk
-from CBR import retrieve
+
 from pizza_knowledge_base import KnowledgeBase, get_pretty_print
 from src import utils, CBR
+
 
 class App(Tk):
     def __init__(self, *args, **kwargs):
@@ -34,7 +35,7 @@ class App(Tk):
         ingredients_selected = list(ingredient_listbox.curselection())
         if len(ingredients_selected) == 0:
             messagebox.showerror(title="No toppings selected",
-                                     message="No toppings selected. You must select at least one")
+                                 message="No toppings selected. You must select at least one")
         else:
             unwanted_ingredients_selected = list(ingredient_discarded_listbox.curselection())
             S1 = set(ingredients_selected)
@@ -42,12 +43,12 @@ class App(Tk):
             intersection = S1.intersection(S2)
             if len(intersection) > 0:
                 messagebox.showerror(title="Same topping in both lists",
-                                         message="You have selected the same topping in both lists. "
-                                                 "Please remove it from one of the lists in order to proceed.")
+                                     message="You have selected the same topping in both lists. "
+                                             "Please remove it from one of the lists in order to proceed.")
             else:
                 dough_selected = dough_dropdown.get()
                 toppings_selected = [toppings[i] for i in ingredients_selected]
-                toppings_discarded =[toppings[i] for i in unwanted_ingredients_selected]
+                toppings_discarded = [toppings[i] for i in unwanted_ingredients_selected]
 
                 sauces_selected = []
                 for value, sauce in zip(vars, KnowledgeBase.sauce):
@@ -57,12 +58,9 @@ class App(Tk):
                 constraints = {'dough': dough_selected, 'sauce': sauces_selected, 'toppings_must': toppings_selected,
                                'toppings_must_not': toppings_discarded}
 
-                self.recommended_pizza = CBR.get_adapted_pizza(constraints, self.case_base)
+                self.recommended_pizza = CBR.cbr_cycle(constraints, self.case_base)
                 self.show_frame(RecipePage)
                 self.frames[RecipePage].update_view(self.recommended_pizza)
-
-
-
 
 
 class StartPage(Frame):
@@ -72,15 +70,14 @@ class StartPage(Frame):
         toppings = utils.get_toppings()
         toppings.sort()
 
-
         recipe_creator = Label(self, text="RECIPE GENERATOR", font="Helvetica 14 bold underline")
-        recipe_creator.grid(row=0, column=0, columnspan=2, pady=(10,0), sticky="nsew")
+        recipe_creator.grid(row=0, column=0, columnspan=2, pady=(10, 0), sticky="nsew")
 
-        #Label Select ingredients
+        # Label Select ingredients
         ingredients_frame = Frame(self)
-        ingredient_label = Label(ingredients_frame, text="Select the must-contain toppings", font=controller.header_font)
+        ingredient_label = Label(ingredients_frame, text="Select the must-contain toppings",
+                                 font=controller.header_font)
         ingredient_label.grid(row=0, column=0, ipadx=10, ipady=10, sticky="nsew")
-
 
         # #Create frame and scrollbar
         ingredients_scroll_frame = Frame(ingredients_frame)
@@ -88,7 +85,7 @@ class StartPage(Frame):
         ingredient_listbox = Listbox(ingredients_scroll_frame, width=30, yscrollcommand=ingredient_scrollbar.set,
                                      selectmode=MULTIPLE, exportselection=False)
 
-        #Configure scrollbar
+        # Configure scrollbar
         ingredient_scrollbar.config(command=ingredient_listbox.yview)
         ingredient_scrollbar.pack(side=RIGHT, fill=Y)
         ingredients_scroll_frame.grid(column=0)
@@ -104,18 +101,15 @@ class StartPage(Frame):
                                            font=controller.header_font)
         ingredient_discarded_label.grid(row=1, column=0, ipadx=10, ipady=10)
 
-
         # #Create frame and scrollbar
         ingredients_discarded_scroll_frame = Frame(ingredients_discarded_frame)
         ingredient_discarded_scrollbar = Scrollbar(ingredients_discarded_scroll_frame, orient=VERTICAL)
-
 
         ingredient_discarded_listbox = Listbox(ingredients_discarded_scroll_frame, width=30,
                                                yscrollcommand=ingredient_discarded_scrollbar.set,
                                                selectmode=MULTIPLE, exportselection=False)
 
-
-        #Configure scrollbar
+        # Configure scrollbar
         ingredient_discarded_scrollbar.config(command=ingredient_discarded_listbox.yview)
         ingredient_discarded_scrollbar.pack(side=RIGHT, fill=Y)
         ingredients_discarded_scroll_frame.grid(column=0)
@@ -126,15 +120,14 @@ class StartPage(Frame):
 
         ingredients_discarded_frame.grid(row=1, column=1, pady=(10, 5))
 
-        #SAUCES
+        # SAUCES
         sauces_frame = Frame(self)
 
-        #Label select sauces
+        # Label select sauces
         sauces_label = Label(sauces_frame, text="Select the sauces you want", font=controller.header_font)
-        sauces_label.grid(column=0, row=0, columnspan=2, ipadx=5, ipady=5, pady=(10,0), sticky="NSEW")
+        sauces_label.grid(column=0, row=0, columnspan=2, ipadx=5, ipady=5, pady=(10, 0), sticky="NSEW")
 
-
-        #Dropdown sauces
+        # Dropdown sauces
         sauces = KnowledgeBase.sauce
         counter = 1
         vars = []
@@ -152,24 +145,22 @@ class StartPage(Frame):
 
         sauces_frame.grid(row=2, column=0, padx=10, pady=10, columnspan=2)
 
-        #Label Select Dough
+        # Label Select Dough
         dough_label = Label(self, text="Select the dough", font=controller.header_font)
         dough_label.grid(row=3, columnspan=2, pady=(10, 0))
 
-        #Dropdown dough
+        # Dropdown dough
         dough_types = KnowledgeBase.dough
 
         dough_dropdown = ttk.Combobox(self, value=dough_types, state="readonly")
         dough_dropdown.current(1)
-        dough_dropdown.grid(row=4, columnspan=2, pady=(5,0))
+        dough_dropdown.grid(row=4, columnspan=2, pady=(5, 0))
 
-
-        #Button generate recipe
-        add_btn = Button(self, text="Generate recipe", command=lambda: controller.generate_recipe(ingredient_listbox, ingredient_discarded_listbox, dough_dropdown, vars, toppings))
+        # Button generate recipe
+        add_btn = Button(self, text="Generate recipe",
+                         command=lambda: controller.generate_recipe(ingredient_listbox, ingredient_discarded_listbox,
+                                                                    dough_dropdown, vars, toppings))
         add_btn.grid(row=5, columnspan=2, ipadx=5, ipady=5, pady=20)
-
-
-
 
 
 class RecipePage(Frame):
@@ -220,5 +211,3 @@ class RecipePage(Frame):
         self.text_sauces.set(('\n').join(pizza.sauce))
         self.text_toppings.set(('\n').join(pizza.toppings))
         self.steps.set(get_pretty_print(pizza.recipe))
-
-
