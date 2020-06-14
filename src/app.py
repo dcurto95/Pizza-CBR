@@ -31,7 +31,6 @@ class App(Tk):
         frame.tkraise()
 
     def generate_recipe(self, ingredient_listbox, ingredient_discarded_listbox, dough_dropdown, vars, toppings):
-
         ingredients_selected = list(ingredient_listbox.curselection())
         if len(ingredients_selected) == 0:
             messagebox.showerror(title="No toppings selected",
@@ -183,10 +182,6 @@ class RecipePage(Frame):
         recipe_label = Label(recipe_frame, text="RECIPE", font="Helvetica 14 bold underline")
         recipe_label.grid(row=0, column=0, pady=(10, 10))
 
-        # ingredients_label = Label(recipe_frame, text="Ingredients", font=controller.header_font)
-        # ingredients_label.grid(row=0, column=0)
-
-
         self.text_dough = StringVar()
         self.text_sauces = StringVar()
         self.text_toppings = StringVar()
@@ -213,7 +208,7 @@ class RecipePage(Frame):
         steps_label = Label(recipe_frame, text="Preparation", font=controller.header_font)
         steps_label.grid(row=7, column=0)
 
-        pizza_steps = Label(recipe_frame, textvariable=self.steps)
+        pizza_steps = Label(recipe_frame, textvariable=self.steps, wraplength=500)
         pizza_steps.grid(row=8, column=0)
 
         back_btn = Button(self, text="Go Back", command=lambda: controller.show_frame(StartPage))
