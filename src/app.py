@@ -207,6 +207,9 @@ class RecipePage(Frame):
         recipe_frame.pack()
 
     def update_view(self, pizza):
+        pizza.sauce.sort()
+        pizza.toppings.sort()
+
         self.text_dough.set(pizza.dough)
         self.text_sauces.set(('\n').join(pizza.sauce))
         self.text_toppings.set(('\n').join(pizza.toppings))
