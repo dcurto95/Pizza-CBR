@@ -1,9 +1,8 @@
 from tkinter import *
 from tkinter import ttk, messagebox
 import tkinter as tk
-from CBR import retrieve
 from pizza_knowledge_base import KnowledgeBase, get_pretty_print
-from src import utils, CBR
+import utils, CBR
 
 class App(Tk):
     def __init__(self, *args, **kwargs):

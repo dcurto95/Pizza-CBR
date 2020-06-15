@@ -17,6 +17,5 @@ def get_toppings():
         toppings.extend(value)
     return toppings
 
-def get_steps(pizza):
-    steps = []
+
 
