@@ -1,8 +1,10 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk, messagebox
+
+import CBR
+import utils
 from pizza_knowledge_base import KnowledgeBase, get_pretty_print
-import utils, CBR
 
 
 # ##### MAIN APPLICATION #####
@@ -13,7 +15,7 @@ class App(Tk):
         Tk.__init__(self, *args, **kwargs)
 
         # Setup and configure the frame
-        container = Frame(self)
+        container = Frame(self, bg="yellow")
         container.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
@@ -28,6 +30,9 @@ class App(Tk):
             frame = F(container, self)
             self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")
+            # frame.grid_rowconfigure(0, weight=1)  # this needed to be added
+            # frame.grid_columnconfigure(0, weight=1)
+
 
         # Show the StartPage
         self.show_frame(StartPage)
@@ -191,25 +196,49 @@ class StartPage(Frame):
         add_btn.grid(row=5, columnspan=2, ipadx=5, ipady=5, pady=20)
 
 
+
+
 # ##### RECIPE PAGE (DISPLAYS THE PIZZA RECIPE) #####
 class RecipePage(Frame):
     def __init__(self, parent, controller):
 
         # Initialize the frame
         Frame.__init__(self, parent)
+        #Configure the weights
+        self.grid_rowconfigure(0, weight=1)
+        self.grid_columnconfigure(0, weight=1)
 
-        header_font = 'Helvetica 10 bold'
+        # Initialize and configure a new frame
+        frame = Frame(self)
+        frame.pack(side=LEFT, fill=BOTH, expand=True)
+        frame.grid_rowconfigure(0, weight=1)
+        frame.grid_columnconfigure(0, weight=1)
 
-        # Create the recipe frame
-        recipe_frame = Frame(self)
-        recipe_label = Label(recipe_frame, text="RECIPE", font="Helvetica 14 bold underline")
-        recipe_label.grid(row=0, column=0, pady=(10, 10))
+        # Initialize the canvas
+        self.canvas = Canvas(frame)
+        self.canvas.pack(side=RIGHT, fill=BOTH, expand=True)
 
-        # Definition of string variable (dynamically updated)
+        # Create the recipe frame and add it to the canvas
+        recipe_frame = Frame(self.canvas)
+        self.canvas.create_window((0, 0), window=recipe_frame, anchor=NW)
+
+        # Create the scrollbar and configure it
+        scrollbar = Scrollbar(self.canvas, orient="vertical", command=self.canvas.yview)
+        scrollbar.pack(side=RIGHT, fill=Y)
+        self.canvas.config(yscrollcommand=scrollbar.set)
+        recipe_frame.bind("<Configure>", self.configure_frame)
+
+        # # Definition of string variable (dynamically updated)
         self.text_dough = StringVar()
         self.text_sauces = StringVar()
         self.text_toppings = StringVar()
         self.steps = StringVar()
+
+        header_font = 'Helvetica 10 bold'
+
+        # Create the recipe label
+        recipe_label = Label(recipe_frame, text="RECIPE", font="Helvetica 14 bold underline")
+        recipe_label.grid(row=0, column=0, pady=(20, 10))
 
         # Dough label
         dough_label = Label(recipe_frame, text="Dough", font=header_font)
@@ -240,15 +269,14 @@ class RecipePage(Frame):
         steps_label.grid(row=7, column=0)
 
         # Preparation content
-        pizza_steps = Label(recipe_frame, textvariable=self.steps, wraplength=500)
-        pizza_steps.grid(row=8, column=0)
+        pizza_steps = Label(recipe_frame, textvariable=self.steps, wraplength=450)
+        pizza_steps.grid(row=8, column=0, padx=5, pady=(0,10))
 
-        # Button to go to previous page (StartPage)
-        back_btn = Button(self, text="Go Back", command=lambda: controller.show_frame(StartPage))
+        back_btn = Button(frame, text="Go Back", command=lambda: controller.show_frame(StartPage))
         back_btn.pack(anchor="w")
 
-        # Add frame to main frame
-        recipe_frame.pack()
+    def configure_frame(self, event):
+        self.canvas.configure(scrollregion=self.canvas.bbox("all"))
 
     # Updates the RecipePage view given a recommended pizza
     def update_view(self, pizza):
