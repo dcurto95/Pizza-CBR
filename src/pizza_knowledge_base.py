@@ -5,74 +5,29 @@ class KnowledgeBase:
     sauce = ('tomato', 'steak & grill', 'bourbon barbecue', 'tomato and oregano', 'carbonara', 'creme barbecue',
              'barbecue', 'burger')
     meat = ('sausage', 'marinated chicken', 'york', 'beef', 'pepperoni', 'new orleans pork',
-            'quarter pounder', 'bacon crispy', 'bacon', 'chicken pops', 'pulled pork', 'pepperoni', 'mini burger')
-    fish = ('tuna', 'prawn', 'anchovy')
+            'quarter pounder', 'bacon crispy', 'bacon', 'chicken pops', 'pulled pork', 'mini burger')
+    fish = ('tuna', 'prawn', 'anchovy', 'salmon')
     cheese = (
         'goat cheese', 'cheddar cheese', 'provolone cheese', '5 gourmet cheeses', 'mix 4 cheeses', 'cured swiss cheese',
         'mozzarella topping', 'cheddar cheese cream')
     dough = ('thin', 'classic', 'quadroller', '3 floors', 'garlic cheese filled border', 'gluten free')
     after_bake = ('nachos after baking and cut', 'pineapple', 'oregano', 'jamon iberico',
-                  'cesar dressing', 'olive oil', 'fresh parmesan cheese')
+                  'cesar dressing', 'olive oil', 'fresh parmesan cheese', 'caviar')
     vegetable = ('fresh tomato', 'caramelized onion', 'rocket', 'extra candied tomatoe', 'onion', 'green pepper',
-                 'roasted pepper', 'black olives', 'mushroom', 'bell pepper')
+                 'roasted pepper', 'black olives', 'mushroom', 'bell pepper', 'pear')
+
     # All ingredients in precook must already be in another set
     precook = (
         'caramelized onion', 'roasted pepper', 'marinated chicken', 'beef', 'new orleans pork', 'quarter pounder',
         'bacon crispy', 'chicken pops', 'pulled pork', 'mini burger')
 
-    # cooking_groups = {'sauce': sauce, 'meat': meat, 'fish': fish, 'vegetable': vegetable, 'precook': precook, 'dough': dough, 'after_bake': after_bake, 'cheese': cheese}
     default_recipe_task_order = (
         'extend', 'precook', 'chop', 'spread', 'scatter', 'add_vegetable', 'add_meat', 'add_fish', 'bake',
         'add_after_bake')
 
 
-# def group_ingredients(ingredients):
-#     grouped_ingredients = {k: [] for k in
-#                            ['sauce', 'meat', 'fish', 'vegetable', 'precook', 'dough', 'after_bake', 'cheese']}
-#
-#     for ingredient in ingredients:
-#         if ingredient in KnowledgeBase.sauce:
-#             grouped_ingredients['sauce'].append(ingredient)
-#         if ingredient in KnowledgeBase.meat:
-#             grouped_ingredients['meat'].append(ingredient)
-#         if ingredient in KnowledgeBase.precook:
-#             grouped_ingredients['precook'].append(ingredient)
-#         if ingredient in KnowledgeBase.fish:
-#             grouped_ingredients['fish'].append(ingredient)
-#         if ingredient in KnowledgeBase.cheese:
-#             grouped_ingredients['cheese'].append(ingredient)
-#         if ingredient in KnowledgeBase.vegetable:
-#             grouped_ingredients['vegetable'].append(ingredient)
-#         if ingredient in KnowledgeBase.after_bake:
-#             grouped_ingredients['after_bake'].append(ingredient)
-#         if ingredient in KnowledgeBase.dough:
-#             grouped_ingredients['dough'].append(ingredient)
-#
-#     return grouped_ingredients
-#
-#
-# def get_recipe_from_ingredients(dough, sauces, ingredients):
-#     grouped_ingredients = group_ingredients(ingredients)
-#
-#     chop_ingredients = []
-#     chop_ingredients.extend(grouped_ingredients['vegetable'])
-#     chop_ingredients.extend(grouped_ingredients['meat'])
-#
-#     recipe = [("extend", dough),
-#               ("precook", grouped_ingredients['cooked_meat']),
-#               ("chop", chop_ingredients),
-#               ("spread", sauces),
-#               ("scatter", grouped_ingredients['cheese']),
-#               ("add_vegetable", grouped_ingredients['vegetable']),
-#               ("add_meat", grouped_ingredients['meat']),
-#               ("add_fish", grouped_ingredients['fish']),
-#               ("bake", ["pizza"]),
-#               ("add_after_bake", grouped_ingredients['after_bake'])]
-#
-#     return recipe
-
-
 def group_toppings(toppings):
+    # Given a list of topings returns a dictionary grouping them by category
     grouped_toppings = defaultdict(list)
 
     for topping in toppings:
@@ -131,6 +86,10 @@ def get_toppings_in_same_group(first_group, second_group, must_have_toppings):
             different_groups.extend(value)
         else:
             matching_groups.extend(value)
+
+    different_groups = list(set(different_groups))
+    matching_groups = list(set(matching_groups))
+
     return different_groups, matching_groups
 
 
@@ -167,7 +126,7 @@ def get_pretty_print(recipe):
             if task[0] == 'bake':
                 text.append(f'{step}. Bake the pizza at 180ºC for approximately 15 minutes (with the oven preheated).')
             if task[0] == 'add_after_bake':
-                text.append(f'{step}. Once cooked, add the {ingredients_string}')
+                text.append(f'{step}. Once cooked, add the {ingredients_string}.')
             step += 1
 
     text.append('Enjoy!')
