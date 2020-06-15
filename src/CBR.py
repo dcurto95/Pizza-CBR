@@ -5,7 +5,6 @@ import numpy as np
 from pizza import Pizza
 from pizza_knowledge_base import get_recipe_from_toppings, KnowledgeBase, group_toppings, get_toppings_in_same_group
 
-
 # ##### S Y S T E M   P A R A M E T E R S #####
 DOUGH_WEIGHT = 0.15
 SAUCE_WEIGHT = 0.15
@@ -25,7 +24,8 @@ MAX_INGREDIENTS = 7
 def pizza_distance_constraints(pizza, constraints):
     d_dough = dough_distance(pizza.dough, constraints['dough'])
     d_sauce = sauce_distance(pizza.sauce, constraints['sauce'])
-    d_toppings = topping_distance_constraints(pizza.toppings, constraints['toppings_must'], constraints['toppings_must_not'])
+    d_toppings = topping_distance_constraints(pizza.toppings, constraints['toppings_must'],
+                                              constraints['toppings_must_not'])
 
     return DOUGH_WEIGHT * d_dough + SAUCE_WEIGHT * d_sauce + TOPPING_WEIGHT * d_toppings
 
@@ -49,7 +49,8 @@ def sauce_distance(source, target):
     return jaccard_distance(source, target)
 
 
-# Modified edit distance with insertion and deletion counts for topping comparison in retrieval (using must and must_not lists)
+# Modified edit distance with insertion and deletion counts for topping comparison in retrieval
+# (using must and must_not lists)
 def topping_distance_constraints(source, target_must, target_must_not):
     insertions = len(set(target_must) - set(source))
     normalized_insertions = insertions / len(set(target_must))  # Forced to have len > 0 in GUI
@@ -119,8 +120,8 @@ def update_recipe_from_baseline(actions, add_tasks, constraints, insert_tasks, n
         baseline_recipe = delete_topping(baseline_recipe, topping_deletions)
         new_ingredients = [topping for topping in new_ingredients if topping not in topping_deletions]
     # Sort the recipe based on knowledge base template
-    baseline_recipe = [tuple.tolist() for x in KnowledgeBase.default_recipe_task_order for tuple in baseline_recipe if
-                       tuple[0] == x]
+    baseline_recipe = [task_tuple.tolist() for x in KnowledgeBase.default_recipe_task_order for task_tuple in
+                       baseline_recipe if task_tuple[0] == x]
     return baseline_recipe, new_ingredients
 
 
@@ -187,7 +188,8 @@ def delete_topping(new_recipe, topping_deletions):
     return new_recipe
 
 
-# Main adapt function. Takes the retrieved pizza and the set of constraints by the user. Returns an adapted pizza and recipe.
+# Main adapt function. Takes the retrieved pizza and the set of constraints by the user.
+# Returns an adapted pizza and recipe.
 def adapt(constraints, closest_pizza):
     new_recipe = np.array(closest_pizza.recipe, copy=True)
     actions = new_recipe[:, 0]
@@ -256,10 +258,7 @@ def forget(case_base):
     indices = np.arange(matrix_distance.shape[0])
     for j in range(1, len(case_base)):  # Start at 1 to avoid 0-distances between itself
         where_min_dist = np.where(matrix_distance[:, j] == np.min(matrix_distance[indices, j]))[0]
-        indices = np.setdiff1d(indices, where_min_dist)
-
-        # indices = np.array(list(
-        #     set(np.where(matrix_distance[:, j] == min(matrix_distance[indices, j]))[0]).intersection(set(indices))))
+        indices = np.intersect1d(indices, where_min_dist)
 
         if len(indices) == 1:
             deletion = case_base[indices[0]]
@@ -297,7 +296,6 @@ def cbr_cycle(constraints, case_base, verbose=False):
         adapted_case = closest_case
 
     # Evaluate
-    pass
 
     # Learn
     insertion, deletions_list = learn(case_base, adapted_case, closest_case)
@@ -306,7 +304,8 @@ def cbr_cycle(constraints, case_base, verbose=False):
         if insertion is None:
             print('The adapted pizza was NOT learned in the case library')
         else:
-            print('The adapted pizza was learned to the case library. {} cases have been removed'.format(len(deletions_list)))
+            print('The adapted pizza was learned to the case library. {} cases have been removed'.format(
+                len(deletions_list)))
         print('\n\n')
 
     return adapted_case
