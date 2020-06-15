@@ -30,8 +30,6 @@ class App(Tk):
             frame = F(container, self)
             self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")
-            # frame.grid_rowconfigure(0, weight=1)  # this needed to be added
-            # frame.grid_columnconfigure(0, weight=1)
 
 
         # Show the StartPage
@@ -275,6 +273,7 @@ class RecipePage(Frame):
         back_btn = Button(frame, text="Go Back", command=lambda: controller.show_frame(StartPage))
         back_btn.pack(anchor="w")
 
+    # Configure the scroll region of the canvas
     def configure_frame(self, event):
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))
 
